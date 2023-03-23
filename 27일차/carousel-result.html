@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐러셀 만들기</title>
+    <link rel="stylesheet" href="css/carousel.css">
+</head>
+<body>
+    <p>좌우 화살표를 눌러 보세요</p>
+
+    <div id="container">
+        <div class="arrow" id="left">&lang;</div>
+        <div class="arrow" id="right">&rang;</div>
+    </div>
+
+    <script src="js/carousel-result.js"></script>
+</body>
+</html>
+<!-- 
+    화살표 요소를 가져와서 arrows로 저장한 후
+    click 이벤트가 발생하면 왼쪽 화살표인지, 오른쪽 화살표인지 확인한다.
+    event.target을 사용해서 id값이 left인지, right인지 확인
+    left라면 이전 이미지로, right라면 다음 이미지로 이동
+    첫 번째 이미지에서 left를 클릭하면 마지막 이미지로 넘어가고,
+    마지막 이미지에서 right를 클릭하면 첫번째 이미지로 이동
+ -->

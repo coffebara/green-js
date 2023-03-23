@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>setInterval()로 텍스트 회전</title>
+    </head>
+    <body>
+        <h3>텍스트가 자동 회전하며, 스페이스바로 조작할 수 있습니다.</h3>
+        <hr />
+        <div>
+            <span id="div" style="background-color: yellow">자동 회전하는 텍스트입니다.</span>
+        </div>
+        <script>
+            var div = document.getElementById("div");
+            var body = document.querySelector("body");
+            var timerID = setInterval("doRotate()", 200);
+            console.log(timerID);
+
+            var isMove = true;
+            var count = 1;
+            var speed = 200;
+
+            var clickedSpeed;
+
+            div.addEventListener("click", function() {
+                if (!isMove) {
+                    speed = 200/count;
+                    timerID = setInterval("doRotate()", speed);
+                    isMove = true;
+                    // 클릭 시의 속도를 저장합니다.
+                    clickedSpeed = speed;
+                } else {
+                    clearInterval(timerID);
+                    ++count;
+                    isMove = false;
+                }
+            })
+            body.addEventListener("keydown", function (e) {
+                var key = e.key;
+                if (key == " ") {
+                    clearInterval(timerID);
+                    // 클릭 시의 속도에서 천천히 느려지도록 설정합니다.
+                    clickedSpeed = Math.min(200, clickedSpeed + 20);
+                    timerID = setInterval("doRotate()", clickedSpeed)
+                }
+            });
+
+            // 정회전
+            function doRotate() {
+                var str = div.innerHTML;
+                var firstChar = str.substr(0, 1);
+                var remains = str.substr(1, str.length - 1);
+                str = remains + firstChar;
+                div.innerHTML = str;
+            }
+
+        </script>
+    </body>
+</html>

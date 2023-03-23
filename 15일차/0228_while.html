@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const gitBook = {
+                title: "깃&깃허브 입문",
+                pubDate: "2019-12-06",
+                pages: 272,
+                finished: true,
+            };
+
+            for (key in gitBook) {
+                document.write(`${key} : ${gitBook[key]}<br>`);
+            }
+        </script>
+        <!-- 객체에서 사용할 수 있는 반복문
+        for...in문은 반복해서 객체의 키를 가져온다. 
+        각 키의 값을 알고 싶다면 가져온 키를 사용해서 객체에 접근한다.
+        배열도 객체이기 떄문에 배열에서도 for...in문을 사용할 수 있다.
+
+        이름 값, 키 값-->
+        <!-- key의 종류만큼 나오고 중복되는 key값은 가장 최신걸로 인식함 -->
+        <script>
+            const students = ["Park", "kim", "Lee", "Kang"];
+            for (let student of students) {
+                document.write(`${student}. `);
+            }
+        </script>
+        <!-- 문자열이나 배열처럼 그 안의 값이 순서대로 나열되어 있는 객체를 이터러블(iterable) 객체라고 함.
+        이터러블 객체에서는 for...of 문을 사용할 수 있다.
+        for(변수 or 객체) { ... } -->
+    </body>
+</html>
+
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>schedule</title>
+    <style>
+        h3{
+            margin-bottom: 0;
+            margin-left: 0;
+            /* padding-bottom: 0; */
+        }
+        /* 겹치기 */
+        #a1{
+            margin-left: 0;
+            border: 2px solid lightgray;
+            width: 630px;
+        }
+        #a2{
+            position: absolute;
+            top: 30px;
+            border: 2px solid cadetblue;
+            width: 130px;
+        }
+        /*  */
+        body{
+            font-family: '돋움';
+            font-size: 12px;
+            color: #444444;
+        }
+        #date>li {
+            display: inline;
+            /* float: left; */
+            list-style: none;
+            font-size: 14px;
+            margin-top: 10px;
+            /* margin-left: 210px; 여기에 margin을 주면 사이 간격까지 전부 떠버림 */ 
+        }
+        table{
+            margin-top: 15px;
+            border: 1px solid #aaaaaa;
+            border-top: 2px solid #aaaaaa;
+            border-collapse: collapse;
+        }
+        th,td,tr{
+            border: 1px solid #aaaaaa;
+            width: 76px;
+            padding: 5px;
+        }
+        th{
+            height: 20px;
+            background: #f8f9f2;
+            font-weight: bold;
+            text-align: center;
+        }
+        td,tr{
+            /* height:  60px; 여기에 height 값을 주면 th까지 묶여서 적용되버림*/
+            text-align: start;
+        }
+        td{
+            height: 60px;
+            vertical-align: text-top;
+        }
+        .red{
+            
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h3><img src="img/sched_title.gif"></h3> -->
+    <h3>학사일정</h3>
+    <hr id="a1"><hr id="a2">
+    <ul id="date">
+        <li><img style="margin-left: 210px;" src="C:\image\그림1.png"></li>
+        <li>2017년 6월</li>
+        <li><img src="C:\image\그림2.png"></li>
+    </ul>
+    <table id="sched_tb1">
+        <tr id="day">
+            <th><span class="red">일</span></th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th><span class="blue">토</span></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td><span class="blue">5</span></td>
+        </tr>
+        <tr>
+            <td><span class="red">6</span></td>
+            <td>7</td>
+            <td>8</td>
+            <td>9<br>특강</td>
+            <td>10</td>
+            <td>11</td>
+            <td><span class="blue">12</span></td>
+        </tr>
+        <tr>
+            <td><span class="red">13</span></td>
+            <td>14<br>기말고사</td>
+            <td>15<br>기말고사</td>
+            <td>16<br>기말고사</td>
+            <td>17<br>기말고사</td>
+            <td>18<br>기말고사</td>
+            <td><span class="blue">19</span></td>
+        </tr>
+        <tr>
+            <td><span class="red">20</span></td>
+            <td>21<br>하계방학</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td><span class="blue">26</span></td>
+        </tr>
+        <tr>
+            <td><span class="red">27</span></td>
+            <td>28</td>
+            <td>29<br>MT</td>
+            <td>30<br>MT</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>

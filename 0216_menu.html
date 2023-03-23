@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 스타일 적용이 안될 땐, 철자부터 확인하자!!!! */
+        /* hover를 활용해 배경색 생성되게 한다.*/
+        #menubar:hover{
+            background: olive;
+        } 
+        /* 메뉴바의 ul 목록의 넓이를 설정한다. */
+        #menubar ul{
+            margin: 0;
+            padding: 0;
+            /* 모든 아이템(<li>)가 한 줄에 품을 수 있는 폭 */
+            width: 567px;
+        }
+        #menubar ul li{
+            display: inline;
+            list-style-type: none;
+            padding: 0px 15px; /*top bottom 0, left, right=15; */
+        }
+        #menubar ul li a{
+            /* 하얀색으로 해서 초기 화면에 아무것도 보이지 않는 것처럼 만듬 */
+            color: white;
+            text-decoration: none; /*링크 보이지 않게*/
+        }
+        /* 글자에 가져다 대면 글자가 보라색으로 */
+        #menubar ul li a:hover{
+            color: violet;
+        }
+    </style>
+</head>
+<body>
+    <nav id="menubar">
+        <ul>
+            <li><a href="#">뭐줄까?</a></li>
+            <li><a href="#">아메리카노</a></li>
+            <li><a href="#">카푸치노</a></li>
+            <li><a href="#">카페라뗴</a></li>
+            <li><a href="#">다른거</a></li>
+        </ul>
+    </nav>
+    
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 스타일 적용이 안될 땐, 철자부터 확인하자!!!! */
+        p{
+            opacity: 0.0;
+        }
+        #menubar{
+            padding: 5px;
+            color: white;
+        }
+        p:hover{
+            opacity: 1.0;
+            background: olive;
+        }
+        #menubar:hover{
+            cursor: pointer;
+            color: violet;  
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span id="menubar">뭐줄까</span>
+        <span id="menubar">아메리카노</span>
+        <span id="menubar">카푸치노</span>
+        <span id="menubar">카페라떼</span>
+        <span id="menubar">다른거!</span>
+    </p>
+    
+</body>
+</html> -->

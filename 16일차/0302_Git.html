@@ -1,0 +1,58 @@
+저장소에 올리지 않는 파일들은 .gitignore
+원격저장소를 효율적으로 쓰고 싶으면 쓸데없는 파일은 commit 해서 올리지 않는게 좋습니다.</>
+.gitignore 파일을 하나 만들면 저장소에 올리지 않을 파일들을 쉽게 명시가능합니다
+거기 명시한 파일들은 git add . 해도 스테이징 되지 않아서 편리합니다
+
+타인과 협업하기 (git clone, pull)
+github.com 가서 다운받아도 되고 zip 파일이죠 아니면
+git clone 원격저장주소 이 방법으로 해보자
+
+이제 팀원도 폴더 열어서 코드를 가볍게 하나만 짜고 commit하고 git push하면 됩니다
+git2>git clone 원격저장소주소
+
+1 팀장이 작업하는 green 이라는 작업폴더를 깃허브에서 만들어봅니다
+그 팀원의 아이디를 settings 가서 collaborators 메뉴에 등록해놔야 협업 가능합니다.
+add people
+
+깃허브 가서 처음 메인 브랜치에서 
+addfile메뉴에서 create new file 밑에 upload files 둘중 하나를 누른다
+green/b라는 파일을 만들도 eidt new file에 내용을 적는다(a(민지가)라는 팀원이 만들었음)
+메세지는 아래에 해당팀원의 이름인 민지가 만들었음 적어본다 <- 메세지를 남긴다
+
+작업폴더로 가서 c파일을 만들어보자 코드를 가볍게 넣어보고
+장인3> git add .
+장인3> git commit -m 'c파일을 만들었음'
+장인3> git push
+
+- git pull 원격저장주소 브랜치명 입력하면 특정 브랜치만 가져올 수 있습니다. 
+- origin이라는 변수명을 등록해놨으면 당연히 사용가능
+- 예전에 -u 했었으면 git pull, git push까지만 입력해도 잘됩니다. 
+ git pull 명령어는 git fetch + git merge 축약어임
+
+git fetch는 원격저장소에 있는 commit 중에 로컬에 없는 신규 commit을 가져오라는 뜻이고
+git merge는 그걸 merge하라는 뜻입니다.
+
+1. github 사이트에서 직접 브랜치 생성가능
+
+main 브랜치명 버튼 누르면 브랜치를 바꾸거나 새로 만들 수 있습니다.
+
+2. 아니면 로컬 repository 에서도 브랜치생성가능
+로컬저장소에서 브랜치생성해서 원격저장소로 git push 해도 됩니다. 
+
+로컬저장소에서
+장인3> git branch mining
+장인3> git switch mining    코드를 파일하나를 만들어보고
+
+장인3> git add .
+장인3> git commit -m 'd파일을 만들었음'
+        첫번째 줄을 수정함 << 충돌이 날 경우를 위해서
+장인3> git add .
+장인3> git commit -m 'a파일을 수정함'
+
+장인3> git switch main
+        똑같이 a파일을 수정한다
+장인3> git add . 
+장인3> git commit -m '파일을 수정함2'
+원격저장소로 올리고 싶다
+git push 원격저장소주소 로컬 브랜치명
+git  

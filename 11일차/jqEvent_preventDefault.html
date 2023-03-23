@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Basic</title>
+    <script src="/jquery-3.6.3.min.js"></script>
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function(){
+            // 이벤트를 연결합니다.
+            $('a').click(function(event){
+                // 출력합니다.
+                alert('click');
+
+                // 기본 이벤트를 제거합니다.
+                // event.preventDefault();
+                return false;
+                // return false; 도 이벤트를 막음
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="http://hanb.co.kr">Hanbit Academy</a>
+</body>
+</html>
+
+<!-- NOTE_return false
+jQuery 라이브러리에서 return false를 사용하면 기본 이벤트와
+이벤트 전달이 함께 제거됨 -->

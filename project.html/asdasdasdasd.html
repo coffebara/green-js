@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="/jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const header = document.getElementById("header");
+            const bottom = document.querySelector(".bottom");
+
+            header.classList.add("header--Transparent");
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset >= bottom.offsetHeight) {
+                    header.classList.remove("header--Transparent");
+                } else {
+                    header.classList.add("header--Transparent");
+                }
+            })
+        })
+    </script>
+    <style>
+        body{
+            margin: 0;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 61px;
+            border-bottom: 1px solid #DBDBDB;
+            box-sizing: border-box;
+            box-shadow: 0 4px 11px rgb(0 0 0 / 10%);
+            background-color: #FFFFFF;
+        }
+        .header--Transparent{
+            border-bottom: 0;
+            box-shadow: none;
+            background-color: transparent;
+        }
+        
+
+        .bottom {
+            background-color: red;
+            height: 300px;
+            position: relative;
+            padding-top: 52px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="header" id="header">씨발 이게 왜 ??</div>
+        <div class="bottom"></div>
+        <div style="height: 2000px; background: black"></div>
+        <div></div>
+    </div>
+    <script>
+        document.write(bottom.offsetHeight);
+        document.write(window.pageYOffset);
+        console.log(bottom.offsetHeights);
+        console.log(window.pageYOffset);
+    </script>
+</body>
+</html>

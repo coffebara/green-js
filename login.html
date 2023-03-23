@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"); /* 외부 CSS를 url로 가져옴 */
+            * { /* '*' -모든 것을 뜻함 */
+                margin: 0; /* 외부 여백:0 */
+                padding: 0; /* 내부 여백:0 */
+                box-sizing: border-box;  /* 테두리 너비의 박스사이즈를 만듬(border, margin가 box 크기 안으로 들어감) */
+                font-family: sans-serif; /* 'sans-serif'라는 글꼴을 사용 */
+            }
+            .login{     /* 'login' 클래스*/
+                /* 화면 정가운데로 위치하게끔 */
+                position: absolute;     /* 가장 가까운 위치에 있는 조상을 기준으로 함 */
+                top: 50%;     /* 위에서부터 50% 에 위치 */
+                left: 50%;     /* 왼쪽에서부터 50% 에 위치 */
+                transform: translate(-50%, -50%);       /* 현재위치에서 x,y축으로 각각 -50%, -50%만큼 이동함 */
+                text-align: center;       /* 텍스트를 중앙정렬 시킴  */
+                /* boder: 1px solid black; */
+            }
+            .login h1{       /*  login클래스의 자손인 h1태그 */
+                font-size: 30px;       /*  폰트 사이즈를 30px로 함 */
+                margin: 20px;       /* 외부여백을 20px로 함 */
+                font-weight: bold;       /*  폰트의 두께를 볼드로 함 */
+            }
+            .login .box{       /*  login클래스의 자손인 box클래스 */
+                position: relative;       /* 원래 자기 위치를 기준으로 함  */
+                display: block;       /* 혼자서 한 줄을 차지함, div나 p태그 등  */
+            }
+            .login .box input{       /* login 클래스의 자손인 box 클래스의 input태그  */
+                width: 300px;       /*  길이를 300px로 함 */
+                height: 50px;       /* 높이를 50px로 함 */
+                border: none;       /* 테두리를 없앰  */
+                border-bottom: 2px solid #adadad;       /*  두께 2px, 지정색상의 실선을 아래 테두리로 지정 */
+                /* border 와 outline 모두 테두리의 요소를 지정. 
+                border 는 크기를 지정한 뒤 margin값이 추가로 들어가서 box 크기가 +margin값이 된다 
+                outline 은 크기를 지정한 뒤 margin값이 box의 크기 내부로 들어가 box 크기는 고정된다.*/
+                outline: none;       /*  테두리를 없앰 */
+                margin-bottom: 20px;        /* 외부 하단 여백을 20px만큼 줌 */
+                font-size: 15px;        /* 글씨 크기를 15px로 함 */
+            }
+            .btn{        /* btn 클래스 */
+                width: 300px;        /* 너비 300px */
+                height: 50px;        /* 높이 50px */
+                margin-bottom: 20px;        /* 외부 하단 여백 20px */
+                /* gradient : 그라데이션
+                linear-gradient : 선형 그라데이션  
+                radial-gradient : 원형 그라데이션
+                reapeating-gradient : 반복형 그라데이션*/
+                background: linear-gradient(125deg, #81ecec, #7869ec, #81ecec);        /*  */
+                background-position: left;        /* 배경위치를 왼쪽으로 둠 */
+                background-size: 200%;        /* 배경 크기를 200%로 함 */
+                transition:0.4s;        /* 변화가 일어나는 시간을 0.4초로 함 */
+                color: white;        /* 글자색을 white */
+                border: none;        /* 테두리 없앰 */
+                cursor: pointer;        /* 커서를 올리면 pointer 아이콘이 생김 */
+                font-weight: bold;        /* 글자 두께를 bold로 함 */
+            }
+            .btn:hover{        /* btn 클래스에 마우스를 올릴 경우 */
+                background-position: right;        /* 배경을 위치를 오른쪽으로 옮김 */
+            }
+            .bottom p{        /* bottom 클래스의 자손 p태그 */
+                display: inline;        /* 한줄로 출력함 */
+                font-size: 15px;        /* 글자 크기 15px */
+                padding: 10px;        /* 내부여백 10px */
+            }
+            .bottom p a{        /* bottom 클래스의 자손 p태그 안의 a태그 */
+                text-decoration: none;        /* 글자를 꾸미지 않음 */
+                color: gray;        /* 글자 색을 gray로 지정 */
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="login">
+            <form action="#">
+                <h1>Login</h1>
+                <div class="box">
+                    <input type="text" name="id" id="id" placeholder="ID">
+                </div>
+                <div class="box">
+                    <input type="password" name="pass" id="pass" placeholder="PASSWORD">
+                </div>
+                <div class="box">
+                    <button type="submit" class="btn" value="JOIN">J O I N</button>
+                </div>
+                <div class="bottom">
+                    <p><a href="#"> ID/Password 찾기</a></p>
+                    <p><a href="./signup.html">회원가입</a></p>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 특가!</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <style>
+        *{margin:0; padding: 0;}
+        .box{
+            /* 박스 크기 */
+            margin: 10px;
+            width: 250px;
+            height: 300px;
+            display: flex;
+            justify-content: center;            
+        }
+        /* img{
+            width: 100%;    
+            height: 100%;   
+            border-radius: 10px;
+            object-fit: cover;
+            position: relative;
+            left: -200px;
+        } */
+        a{
+            /* 텍스트 */
+            color: white;
+            font-size: 18px;
+            font-weight: bolder;    
+            font-family: "hanna";
+            /* 텍스트 쉐도우로 mark 효과! 글씨가 더 잘보여요! */
+            text-shadow: 6px 6px 16px rgba(0 0 0 / 90%);
+            text-decoration:none;
+            /* 영역 */
+            position: absolute;
+            top: 70px;
+            z-index: 999;
+        }
+
+
+    </style>
+    <script>
+            var mealKit  = [
+                `<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/1.png?raw=true">`,
+                `<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/2.png?raw=true">`,
+                `<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/3.png?raw=true">`,
+                `<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/4.png?raw=true">`,
+                `<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/5.png?raw=true">`,
+                `<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/6.png?raw=true">`,
+            ];
+                // hFoodImgs[i] = `<img src="foodImg/h${i+1}.jpg" class="h">`;
+        $(document).ready(function(){
+            // 랜덤 값
+            var ran = Math.floor(Math.random()*mealKit.length);
+            //  이미지 출력
+            $(`${mealKit[ran]}`).appendTo('.box').animate({left:"0px"},70);
+
+        $('a').hover(function(){
+            $('img').css({
+                "filter" : "brightness(70%)"
+            })
+        }).mouseleave(function(){
+            $('img').css({
+                "filter" : "brightness(100%)"
+            })
+        })
+        });
+        document.write(`<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/1.png?raw=true">`)
+        console.log(`<img src="https://github.com/allready-dawn/fullStack/blob/main/Hyeonseung/1.png?raw=true">`)
+    </script>
+
+
+</head>
+<body>
+    <div class="box">
+        <a href="masonry.html" target="_top">
+            `< 오늘의 특가 ! >`
+    </div>
+    <div><img src="https://github.com/allready-dawn/fullStack/blob/main/Joon/Map/bundangGu.png?raw=true"></div>
+    <div><img src="https://raw.githubusercontent.com/allready-dawn/fullStack/main/Hyeonseung/6.png"></div>
+    <img src="https://github.com/allready-dawn/fullStack/blob/main/Joon/Map/bundangGu.png?raw=true" alt="">
+    
+</body>
+</html>
+
+<!--
+    background-size : cover;
+    배경이미지의 가로, 세로 길이 모두 요소보다 크다는 조건하에 가능한 배경 이미지를 작게 조정합니다. 
+    가로, 세로 비율은 유지됩니다. 따라서 배경 이미지의 크기는 요소의 크기보다 항상 크거나 같습니다.  -->

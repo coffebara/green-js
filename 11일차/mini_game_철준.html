@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .drop {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            animation: fall ease-in 4s infinite;
+            cursor: pointer;
+        }
+
+        .drop:hover {
+            background-color: red;
+        }
+
+        @keyframes fall {
+            0% {
+                top: 0%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        input {
+            position: absolute;
+            color: rgb(27, 8, 8);
+            background-color: rgb(159, 152, 144);
+            font-size: 90px;
+            width: 250px;
+            height: 100px;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            z-index: 2;
+        }
+    </style>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        function createDrop() {
+            const ax = document.createElement('div');
+            ax.classList.add('drop');
+            ax.style.left = Math.random() * 100 + '%';
+            ax.onclick = numb;
+            document.querySelector('.container').appendChild(ax);
+
+            const fallInterval = setInterval(() => {
+                const top = parseFloat(getComputedStyle(ax).top);
+                const bottom = document.querySelector('.container').offsetHeight - ax.offsetHeight;
+                if (top >= bottom) {
+                    var numss = textbox.value
+                    clearInterval(intervalId);
+                    clearInterval(fallInterval);
+                    document.querySelectorAll('.drop').forEach((drop) => drop.remove());
+                    document.getElementById('textbox').value = 0;
+                    var sco = "게임이 종료되었습니다. 당신의 점수는 " + numss + "입니다."
+                    alert(sco);
+                } else {
+                    ax.style.top = top + 1 + 'px';
+                }
+            }, 10);
+        }
+
+        let intervalId = setInterval(createDrop, 1000);
+        function numb() {
+            var textbox = document.getElementById("textbox");
+            var a1 = parseInt(textbox.value);
+            textbox.value = a1 + 1;
+            this.remove();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="b"><input type="text" id="textbox" value="0"></div>
+    <div class="container">
+    </div>
+</body>
+
+</html>

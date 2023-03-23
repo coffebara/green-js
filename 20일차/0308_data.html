@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showData(name, age){
+            alert(`안녕하세요? ${name}님. 나이가${age}살이군요.`);
+        }
+
+        function getData(callback){
+            let userName = prompt("이름을 입력하세요.");
+            let userAge = prompt("나이를 입력하세요.");
+            callback(userName, userAge);
+        }
+
+        getData(showData);
+    </script>
+</body>
+</html>
+
+
+<!-- 
+    콜백 함수는 다른 함수의 인자로 사용하는 함수
+    함수 이름을 사용해 콜백 함수 실행하기
+    함수 안에 직접 콜백 함수 실행하기
+    --함수 안에서 한번만 실행한다면 함수 안에 직접 콜백 함수를 작성할 수 있다
+
+    전개 구문
+    값만 꺼내서 펼쳐주는 구문
+    마침표 3개(...)를 사용해서 표현
+ -->
+
+ getData = (callback) =>{
+    let userName = prompt("이름을 입력하세요.");
+    let userAge = prompt("나이를 입력하세요.");
+    callback(userName, userAge);
+} 

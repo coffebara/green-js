@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <style>
+        div{
+            margin: 5px;
+            width: 100px;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function(){
+            for(var i =0; i<200; i++){
+                var imageArray = ["C:\media/apple.png","C:\media/banana.png","C:\media/mango.png"] ;
+                var num = Math.floor(Math.random() * imageArray.length);
+                // 3가지의 경우의 수를 뽑으려 Math.floor(Math.random()*3)+1
+                // 3가지의 경우의 수를 뽑으려 Math.floor(Math.random()*4)+1
+                // 여기서는 배열을 사용했고 방번호는 0부터 시작하기 때문에 뒤에 +1을 안쓴다
+                var img = imageArray[num];
+                $("<div>").css({
+                    background: "url(" + img + ")",
+                    // 괄호에 유의(헷갈림)
+                    // <div> 블록태그의 css속성인 backgroundImage를 사용해서 이미지가 보여지게끔 하였다
+                    height: Math.floor(Math.random()*100)+50
+                }).appendTo("body");    //<div>태그를 생성해 <body>태그에 붙인다.
+            }
+            // masonry플러그인을 적용한다
+            $("body").masonry({
+                columnWidth: 110 //좌우 margin 5px 너비 width 100px
+                // body의 masonry 함수를 이용하여 넓이를 110으로 지정
+            });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
+

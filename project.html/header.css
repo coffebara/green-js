@@ -1,0 +1,207 @@
+/* 헤더 시작! */
+
+.main_header {
+    height: 300px;
+    background-image: url("05.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    padding-top: 150px;
+    text-align: center;
+    color: #f44e03;
+}
+
+/* ::before | after  
+    가상요소로 선택한 요소의 앞뒤를 css로 꾸며줌
+    content를 사용해 추가적인 텍스트나 이미지를 넣을 수 있음 */
+/* .main_header::after { */
+.main_header::before {
+    /* 범위값을 넣기위해 */
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header_header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 61px;
+    border-bottom: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    box-shadow: 0 4px 11px rgb(0 0 0 / 10%);
+    background-color: #ffffff;
+    color: white;
+    align-items: center;
+}
+
+.header_header--Transparent {
+    border-bottom: 0;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+/* header 위치에 따른 헤더 변환 */
+.header__logoText {
+    color: #ff792a;
+}
+
+.header_header--Transparent .header__logoText {
+    color: #ffffff;
+}
+
+.header__MenuText {
+    position: relative;
+    font-size: 20px;
+    color: #888888;
+    ;
+}
+
+.header_header--Transparent .header__MenuText {
+    color: #ffffff;
+}
+
+.header_logo {
+    width: 130px;
+    justify-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.header__menuItem {
+    border-left: 1px solid #dbdbdb;
+}
+
+.header_header--Transparent .header__menuItem {
+    border-left: 0;
+}
+
+.header_logo li {
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    display: flex;
+}
+
+.header_menuItem {
+    display: flex;
+    margin-left: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.header_menuItem li {
+    display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+}
+
+.header_menuItem a {
+    color: white;
+    width: 130px;
+}
+a {
+    text-decoration: none;
+}
+
+.title {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 280px;
+    /* font-size: 1.625rem; */
+    color: #ffffff;
+    line-height: 45px;
+    width: 720px;
+    font-size: 2.2rem;
+}
+
+h1.title {
+    width: 320px;
+    text-align: right;
+}
+
+/* 여기까지 */
+/* 검색 시작 */
+
+.main_search{
+        width: 700px;
+        margin: 45px auto 0 auto;
+        border: 2px solid #ff792a;
+        border-radius: 80px;
+        background-color: white;
+        position:relative;
+        line-height: 50px;
+        height: 40px;
+        display: block;
+        overflow: hidden;
+    }
+    .search_word{
+        right: 238px;
+        left: 85px; 
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border: none;
+    }
+
+    .icon{
+        background-image: url("https://mp-seoul-image-production-s3.mangoplate.com/web/resources/2018022864551sprites_desktop.png");
+        width: 30px;
+        height: 31px;
+        background-position: -935px -620px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        text-indent: -999999px;
+        left: -52px;
+        margin-top: -15.5px;
+        display:block;
+    }
+    #main-search{
+        line-height: 50px;
+        opacity: 1;
+        height: 50px;
+        border: none;
+        font-size: 1.1rem;
+        width: 100%;          
+        position: absolute;
+        display:block;
+        outline: none;
+        color: black;
+    }
+    .clear_btn{
+        display: none;
+    }   
+    .btn-search{
+        width: 180px;
+        font-size: 1.3rem;
+        line-height: 52px;
+        border-radius: 80px;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -1px; 
+        color: #ffffff;
+        background-color: #ff7100;
+        height: 100%;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* 상단 끝 */

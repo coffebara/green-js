@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#b').hide()
+            $('#b').slideDown(1000);
+            $('#b').slideUp(1000)
+            $('#a').animate({
+                opacity: '1.0'
+            },1000);
+        })
+
+        // $('#b').addClass('up');
+            // $('.up').fadeOut();
+            // $('.up').slideDown();
+            // $('.up').slideUp("slow",function(){
+            //     $('.up').fadeOut("slow",0.0);
+            // });
+    </script>
+    <style>
+        div{
+            text-align: center;
+        }
+        #a{
+            opacity: 0.1;
+            border: 1px solid gray;
+            background: yellow;
+            margin-bottom: 0;
+            padding-bottom: 1px;
+            color: blue;
+        }
+        #b{
+            /* display: none으로 먼저 없애준 뒤 slide를 쓰면 먹힌다! */
+            /* display: none; */
+            margin-top: 0;
+            height: 200px;
+            background: greenyellow;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="a">[오늘의 공지사항]</p>
+        <p id="b">어쩌고 저쩌고</p>
+    </div>
+</body>
+</html>

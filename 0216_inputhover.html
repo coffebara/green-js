@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 스타일 주기</title>
+    <style>
+        span.left{
+            margin-left: -42px;
+        }
+        hr {
+            border: 1px solid lightgray;
+        }
+        div{
+            display: block;
+            margin-top: 30px;
+            margin-left: 10px;
+            padding-left: 60px;
+            line-height: 30px;
+        }
+        #name:hover, #email:hover{
+            font-size: 120%;
+        }
+        input:hover, textarea:hover{
+            background: aliceblue;
+        }
+
+        #name{
+            color: red;
+        }
+        input{
+            margin-bottom: 20px;
+        }
+        textarea{
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h3>CONTACT us</h3>
+    <hr>
+    <div>
+        <table>
+            <tr>
+                <td>name </td>
+                <td><input type="text" id="name" placeholder="현택이"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="email" id="email" placeholder="citadell@naver.com"></td>
+            </tr>
+            <tr>
+                <td><span class="left">Conmment</span></td>
+                <td><textarea name="" id="commnet" cols="20" rows="2" maxlength="40" placeholder="메세지를 남겨주세요"></textarea></td>
+            </tr>
+            <tr>
+                <td>send</td> 
+                <td><input type="submit" value="숙제제출"></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

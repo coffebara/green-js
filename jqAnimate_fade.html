@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Basic</title>
+    <script src="jquery-3.6.3.min.js"></script>
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function(){
+            // 이벤트를 연결합니다.
+            $('button').click(function(){
+                // 간단한 효과를 적용합니다.
+                $('.page').fadeToggle('slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Toggle Show</button>
+    <div class="page">
+        
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+</body>
+</html>
+<!-- 선언적 함수
+    fucntion sum(a,b){
+        함수명 (매개변수, 매개변수)
+    return a+b;
+    반환    값
+
+    익명함수
+    var 변수명 = function(){
+        실행문;
+    }
+
+    내장함수
+    자바스크립트가 자체적으로 가지고 있는 함수이다 isNaN()등... not a number
+    } -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="jquery-3.6.3.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#l").css({
+                    fontWeight: "bold",
+                    fontSize: 30,
+                }),
+                    $("#s").css({
+                        fontSize: "smaller",
+                    }),
+                    $("#btn").click(function () {
+                        $("p").fadeToggle();
+                    })
+            });
+        </script>
+        <style>
+            asd {
+                font-size: smaller;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" id="btn" value="Toggle Show" />
+        <p id="l">Lorem ipsum dolor sit amet</p>
+        <p id="s">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </body>
+</html> -->

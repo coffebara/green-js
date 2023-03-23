@@ -1,0 +1,42 @@
+<!-- 
+    iterable 객체
+    반복 가능한(iterable, 이터러블) 객체는 배열을 일반화한 객체입니다. 이터러블 이라는 개념을 사용하면 어떤 객체에든
+    for..of 반복문을 적용할 있습니다.
+
+    배열은 대표적인 이터러블입니다. 배열 외에도 다수의 내장 객체가 반복 가능합니다. 문자열 역시 이터러블의 예입니다.
+
+    배열이 아닌 객체가 있는데, 이 객체가 어떤 것들의 컬렉션(목록, 집합 등)을 나타내고 있는 경우, for..of 문법을 적용할 수만 있다면
+    컬렉션을 순회하는데 유용할 겁니다.
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <script>
+        Symbol.iterator;
+        // for..of를 적용하기에 적합해 보이는 배열이 아닌 객체를 만들겠습니다.
+        let range = {
+            from : 1,
+            to: 5
+        };
+
+        // 아래와 같이 for..of가 동작할 수 있도록 하는 게 목표입니다.
+        // for(let num of range) ... num=1,2,3,4,5
+
+        // range를 이터러블로 만들려면(for..of가 동작하도록 하려면) 객체에 Symbol.iterable(특수 내장 심볼)라는 메서드를 추가해 아래와
+        //  같은 일이 벌어지도록 해야 합니다.
+        // 1. for..of가 시작되자마자 for..of는 Symbol.iterator를 호출합니다(Symbol.iterator가 없으면 에러가 발생합니다).
+        // 2. 이후 for..of는 반환된 객체(이터레이터)만을 대상으로 동작합니다.
+        // 3. for..of에 다음 값이 필요하면 , for..of는 이터레이터의 next()메서드를 호출합니다.
+        // 4. next()의 반환 값은 {done: Boolean, value: any}와 같은 형태이어야 합니다. done=true는 반복이 종료되었음을 의미합니다.
+        // done=false일 땐 value에 다음 값이 저장됩니다.
+
+        
+    </script>
+ </body>
+ </html>

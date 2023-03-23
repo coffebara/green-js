@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 네이버 검색을 위한 script 태그 -->
+    <script type="text/Javascript">
+        function SearchNaver() {
+            var anText = document.getElementById('search').value;
+            window.open('https://search.naver.com/search.naver?query='+anText);
+        }
+    </script>
+    <!-- 구글 검색을 위한 script 태그 -->
+    <script type="text/Javascript">
+        function SearchGoggle() {
+            var anText = document.getElementById('search').value;
+            window.open('https://www.google.com/search?q='+anText);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Get 방식 검색엔진</h3>
+    <form action="https://search.naver.com/search.naver" target="_blank">
+    
+            <input type="text" name="query" value="">
+            <button type="submit">검색</button>
+        <br><br><hr><br>
+    </form><h3>input방식</h3>
+    <input type="text" class="search_text" id="search"> 
+    <input type="submit" value="네이버" onclick="SearchNaver()"> 
+    <input type="submit" value="구글" onclick="SearchGoggle()">
+
+</body>
+
+</html>

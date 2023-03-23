@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=z, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.3.min.js"></script>
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function () {
+            // 속성을 지정합니다
+            $('img').attr({
+                alt: 'jQuery 라이브러리를 사용한 속성 지정',
+                src: function(index){
+                    // 변수를 선언합니다.
+                    var size = (index +1) * 100; // 인덱스는 0부터 시작, 
+                    // 리턴합니다.
+                    return 'http://placehold.it/' + size + 'x100'; // sting + int = string
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <img />
+    <img />
+    <img />
+</body>
+</html>
+<!-- 
+3.첫 번째 매개변수에 속성을 이름을 입력하고 두 번째 매개변수에 함수를 입력하는 방법
+$('img').attr('arc', function (index){ //src 첫번째 매개변수 ,index 두번째
+    var size = (index + 1) * 100; // 변수를 선언함
+    return 'http://placehold.it' + size + 'x100'; //반환하다
+}) -->

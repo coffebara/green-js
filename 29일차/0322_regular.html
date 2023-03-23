@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>정규표현식</title>
+        <script>
+            function process() {
+                var id = document.getElementById("mid").value;
+                // RegExp 안에 들어있는 것이 정규표현식인데
+                // 지금 뜻은 대소문자 알파벳, 모든 숫자를 사용할 수 있고, 아이디 길이는 4~7글자라는 뜻
+                var patt = new RegExp("^[a-zA-Z][a-zA-Z0-9]{4,7}$");
+                // test 메소드를 활용해 id 객체에 입력된 데이터가 patt의 정보를 만족하는지 검사
+                // test() 메서드는 주어진 문자열이 정규 표현식을 만족하는지 판별하고,
+                // 그 여부를 tru 또는 false 로 반환
+                if (patt.test(id)) {
+                    alert("성공");
+                } else {
+                    alert("다시 입력");
+                    document.getElementById("mid").value = "";
+                    document.getElementById("mid").focus();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <label>아이디</label>
+        <input type="text" name="mid" id="mid">
+        <input type="button" value="commit" onclick="process()">
+    </body>
+</html>

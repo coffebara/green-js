@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <style>
+        *{margin:0; padding: 0;}
+
+        .box{
+            /* 박스 크기 */
+            margin: 10px;
+            width: 200px;
+            height: 250px;
+            border-radius: 10px;
+            /* 텍스트 */
+            color: white;
+            font-size: 22px;
+            font-weight: bolder;    
+            font-family: "hanna";
+            text-align:center;
+            /* 텍스트 쉐도우로 mark 효과! 글씨가 더 잘보여요! */
+            text-shadow: 6px 6px 16px rgba(0 0 0 / 100%);
+
+            /* padding-top: 100px; */
+            line-height: 150px  ;
+            transition: all 0.2s linear;
+        }
+        .box:hover{
+            filter: brightness(70%);
+        }
+        a{
+            color: white;
+            text-decoration:none;
+        }
+        span:hover{
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+            // 음식 사진 배열
+            // 한식
+            var hFoodImgs = [];
+            for(var i = 0; i<19; i++){
+                hFoodImgs[i] = "h"+(i+1);
+            };
+            // 중식
+            var jFoodImgs = [];
+            for(var i = 0; i<3; i++){
+                jFoodImgs[i] = "j"+(i+1);
+            };
+            //일식
+            var iFoodImgs = [];
+            for(var i = 0; i<2; i++){
+                iFoodImgs[i] = "i"+(i+1);
+            };
+            //분식
+            var bFoodImgs = [];
+            for(var i = 0; i<9; i++){
+                bFoodImgs[i] = "b"+(i+1);
+            };
+            //아시안푸드
+            var aFoodImgs = [];
+            for(var i = 0; i<2; i++){
+                aFoodImgs[i] = "a"+(i+1);
+            };
+            //양식
+            var yFoodImgs = [];
+            for(var i = 0; i<12; i++){
+                yFoodImgs[i] = "y"+(i+1);
+            };
+            // 배열 합치기
+            const foodImgs = [
+                ...hFoodImgs,
+                ...jFoodImgs,
+                ...iFoodImgs,
+                ...bFoodImgs,
+                ...aFoodImgs,
+                ...yFoodImgs
+            ];
+
+        $(document).ready(function(){
+            // 랜덤 값
+            var ran = Math.floor(Math.random()*foodImgs.length);
+
+            $(".box").css({
+                // 랜덤 이미지 출력
+                "background-image": `url("foodImg/${foodImgs[ran]}.jpg")`, 
+                // 반복 X
+                'background-repeat' : 'no-repeat',
+                // 사진 중심으로
+                'background-position':'center center',
+                // 상자보다 큰 사진을 비율 맞춰 줄여주기
+                'background-size' : 'cover',
+            });
+        });
+            // hover로 안에 이미지 확대
+        //     $(".box").hover(function(){
+        //         $(this).css({
+        //             "background-image" :"linear-gradient(rgb(0,0,0,.1),(rgba(0,0,0,.1))"
+        //         })
+        //     })
+        // });
+    </script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="box"><a href="masonry.html"><span> 오늘 { &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} 어때?</a></span>
+            <!-- <br><br><br><br>아니면 이건? -->
+        </div>
+    </div>
+    
+    <!-- <div class="filter"></div> -->
+</body>
+</html>
+
+<!--
+    background-size : cover;
+    배경이미지의 가로, 세로 길이 모두 요소보다 크다는 조건하에 가능한 배경 이미지를 작게 조정합니다. 
+    가로, 세로 비율은 유지됩니다. 따라서 배경 이미지의 크기는 요소의 크기보다 항상 크거나 같습니다.  -->

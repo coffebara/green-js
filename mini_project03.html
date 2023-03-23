@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join_form.html</title>
+
+    <!-- 함수를 만들기 위한 스크립트 -->
+    <script type="text/Javascript">
+        // ID의 공백 여부를 확인하는 함수
+        // 근데 왜 안되지?
+        // function CheckID(){
+        //     if (document.getElementById('userID').value != ''){
+        //         alert('사용 가능합니다 !')
+        //     } else {
+        //         alert('ID를 입력해주세요!')
+        //     }
+        // }
+        // 비밀번호의 일치 여부를 확인하는 함수
+        // 비밀번호의 길이도 확인하고 싶지만, length가 안되서 포기.. 왜??
+        function CheckPW() {
+    
+            if (document.getElementById('userPW').value != '' && document.getElementById('userPW2').value != '') {
+                if (document.getElementById('userPW').value == document.getElementById('userPW2').value) {
+                    alert('비밀번호가 일치합니다.');
+                } else {
+                    alert('비밀번호가 일치하지 않습니다.');
+                }
+            } else{
+                alert('비밀번호를 입력해주세요')
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+    <!-- 하나로 묶기 위한 filedset -->
+    <fieldset>
+        <!-- 묶인 filedset 의 제목 -->
+        <legend>
+            <h3>회원 가입 양식</h3>
+        </legend>
+        <!-- table 생성 -->
+        <table>
+            <tr>
+                <!-- onclick 으로 checkID() 함수 불러오기 -->
+                <td>- 아이디</td>
+                <td><input type="text" name="userId" id="userId" maxlength="8" placeholder="아이디" autofocus required>
+                    <input type="button" value="중복 확인" onclick="alert('ID 중복 확인 기능은 아직 미구현입니다...ㅠ')">
+                </td>
+            </tr>
+            <tr>
+                <td>- 비밀번호</td>
+                <td><input type="password" name="userPW" id="userPW" maxlength="12" placeholder="비밀번호"></td>
+            </tr>
+            <tr>
+                <!-- onclick 으로 checkPW() 함수 불러오기 -->
+                <td>- 비밀번호 확인</td>
+                <td><input type="password" name="userPW2" id="userPW2" maxlength="12" placeholder="비밀번호 확인">
+                    <input type="button" value="확인" onclick="CheckPW()">
+                </td>
+            </tr>
+            <tr>
+                <td>- 이름</td>
+                <td><input type="text" placeholder="홍길동"></td>
+            </tr>
+            <tr>
+                <td>- 성별</td>
+                <td><input type="radio" name="gender" id="w" checked>여성
+                    <input type="radio" name="gender" id="m">남성
+                </td>
+            </tr>
+            <tr>
+                <td>- 전화번호</td>
+                <td><select name="number">
+                        <option value="">02</option>
+                        <option value="">031</option>
+                        <option value="">032</option>
+                        <option value="">033</option>
+                        <option value="">041</option>
+                        <option value="">042</option>
+                        <option value="">043</option>
+                        <option value="">044</option>
+                        <option value="">051</option>
+                        <option value="">052</option>
+                        <option value="">053</option>
+                        <option value="">054</option>
+                        <option value="">055</option>
+                        <option value="">061</option>
+                        <option value="">062</option>
+                        <option value="">063</option>
+                        <option value="">064</option>
+                    </select> - <input type="tel" name="" id="" placeholder="1234"> - <input type="tel" name="" id=""
+                        placeholder="5678"></td>
+            </tr>
+            <tr>
+                <td>- 이메일</td>
+                <td><input type="email" name="" id="" placeholder="redRoadEast"> @ <select name="" id="">
+                        <option value="">선택</option>
+                        <option value="">naver.com</option>
+                        <option value="">gmail.com</option>
+                        <option value="">daum.net</option>
+                        <option value="">yahoo.co.jp</option>
+
+                    </select></td>
+            </tr>
+            <tr>
+                <td>- 자기소개</td>
+                <td><textarea name="intro" id="" cols="50" rows="5" placeholder="벌써 금요일! 이번주도 수고하셨습니다!"></textarea>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+</body>
+
+</html>

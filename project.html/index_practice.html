@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <title>Document</title>
+    </head>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        .con {
+            height: 100%;
+        }
+        /* 헤더 시작! */
+
+        .main_header {
+            height: 300px;
+            background-image: url("05.jpg");
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+            padding-top: 150px;
+            text-align: center;
+            color: #f44e03;
+        }
+        /* ::before | after  
+        가상요소로 선택한 요소의 앞뒤를 css로 꾸며줌
+        content를 사용해 추가적인 텍스트나 이미지를 넣을 수 있음 */
+        /* .main_header::after { */
+        .main_header::before {
+            /* 범위값을 넣기위해 */
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .header_header {
+            position: fixed;
+            display: flex;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 61px;
+            border-bottom: 1px solid #dbdbdb;
+            box-sizing: border-box;
+            box-shadow: 0 4px 11px rgb(0 0 0 / 10%);
+            background-color: #ffffff;
+            color: white;
+            align-items: center; 
+            font-size: 20px;           
+        }
+        .header_header--Transparent {
+            border-bottom: 0;
+            box-shadow: none;
+            background-color: transparent;
+        }
+
+        /* header 위치에 따른 헤더 변환 */
+        .header__logoText{
+            color:#ff792a;;
+        }
+        .header_header--Transparent .header__logoText{
+            color:#ffffff;
+        }
+        .header__MenuText{
+            position: relative;
+            font-size: 16px;
+            color: #888888;;
+        }
+        .header_header--Transparent .header__MenuText{
+            color:#ffffff;
+        }
+        .header_logo{
+            width: 130px;
+            justify-items: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .header__menuItem{
+            /* border-left: 1px solid #dbdbdb; */
+        }
+        .header_header--Transparent .header__menuItem{
+            border-left: 0;
+        }
+
+        .header_logo li{
+            justify-content: center;
+        }
+        
+        li {
+            list-style: none;
+            display: flex;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .title {
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            width: 280px;
+            /* font-size: 1.625rem; */
+            color: #ffffff;
+            line-height: 45px;
+            width: 720px;
+            font-size: 2.2rem;
+            height: 100%s;
+        }
+        h1.title {
+            width: 320px;
+            text-align: right;
+        }
+
+        /* 여기까지 */
+
+        .con3 {
+            /* border: 1px solid yellow; */
+            height: 500px;
+
+            /* background-color: aquamarine; */
+            margin-bottom: 2px;
+            width: 750px;
+            color: #ff792a;
+        }
+
+        .con4 {
+            margin-top: 2px;
+            border-color: green;
+            height: 500px;
+            font-size: 14px;
+            font-family: "Nato Sans";
+            width: 25%;
+            color: #ff792a;
+            width: 250px;
+            justify-items: left;
+        }
+
+        .con7 {
+            margin-top: 2px;
+            border-color: green;
+            height: 500px;
+            font-size: 14px;
+            font-family: "Nato Sans";
+            width: 25%;
+            color: #ff792a;
+            width: 250px;
+            align-items: center;
+        }
+
+        .conn3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        h3 {
+            background: #eee;
+            /* display: block; */
+            font-size: 1.5em;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .con5 {
+            margin-top: 2px;
+            /* border-color: green; */
+            height: 700px;
+            /* background-color: rgb(74, 85, 74); */
+        }
+
+        .con6 {
+            margin-top: 2px;
+            height: 500px;
+            /* background-color: rgb(155, 51, 146); */
+        }
+
+        .map1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .shuffle {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            width: 1080px;
+            height: 310px;
+            margin: auto;
+            padding: 0 8px 0 8px;
+            display: flex;
+            flex-direction: column;
+            font-size: 12px;
+        }
+
+        .notice_box {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #f1f3f6;
+        }
+
+        .notice_box > a {
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .bottom_box {
+            flex: 3;
+            padding-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .bottom_box ul > li {
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        /* 
+    .bottom_box ul>li>a {
+        text-decoration: none;
+        color: black;
+    } */
+
+        .mg {
+            margin-left: 100px;
+            margin-right: 200px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            const header = document.getElementById("kkk");
+            const con6 = document.querySelector(".con6");
+            header.classList.add("header_header--Transparent");
+
+            window.window.addEventListener("scroll", () => {
+                if (window.pageYOffset > con6.offsetHeight) {
+                    header.classList.remove("header_header--Transparent");
+                } else {
+                    header.classList.add("header_header--Transparent");
+                }
+            });
+        });
+    </script>
+
+    <body>
+        <header class="con">
+            <div class="header_header" id="kkk">
+                <div class="header_logo">
+                    <li><span class="header__logoText">it-da</li></span>
+                </div>  
+                <div class="header_menuItem">
+                    <li class="header__menuItem"><a href="c:\git\\joon\\mall.html"><span class="header__MenuText"><center>it딜</center></span></a></li>
+                    <li class="header__menuItem"><a href="c:\git\\joon\\mall.html"><span class="header__MenuText"><center>맛집 리스트</center></span></a></li>
+                    <li class="header__menuItem"><a href="c:\git\\joon\\login_signup.html"><span class="header__MenuText"><center>login</center></span></a></li>
+                </div>
+                <!-- <div class="header_menuLastItem">
+                    <li><a href="c:\git\\joon\\login_signup.html">login</a></li>
+                </div> -->
+            </div>
+            <div class="main_header">
+                <p class="title">우리 동네 맛집 여기</p>
+                <h1 class="title">다 it-da</h1>
+                <!-- <div class="main_header-text">
+            <p>우리 동네에 맛집 <br>it-da</p>
+        </div> -->
+            </div>
+            <div class="mg">
+                <!-- 마진 주기 위한 div  -->
+                <div class="con6">
+                    rolling 맛집 소개 영상
+                    <embed class="map2" src="c:\git\\joohong\\swiper.html" width="1000px" height="450px" />
+                </div>
+                <div class="conn3">
+                    <div class="con3">
+                        <h3>우리동네</h3>
+                        <embed class="map1" type="text/html" src="c:\git\\joon\\map.html" />
+                    </div>
+                    <div class="con4">
+                        <h3>오늘의 추천</h3>
+                        <!-- <div id="sj"> -->
+                        <embed type="text/html" src="c:\git\\sangjun\\rndimg.html" width="250" height="300" />
+                        <!-- </div> -->
+                    </div>
+                    <div class="con7">
+                        <h3>특가 이벤트</h3>
+                        <embed type="text/html" src="c:\git\\sangjun\\rndMeal.html" width="250" height="300" />
+                    </div>
+                </div>
+                <div class="con5">rolling1<embed type="text/html" src="c:\git\\Hyeonseung\\project.html" width="90%" height="90%" /></div>
+            </div>
+        </header>
+        <footer>
+            <div class="notice_box">
+                <!-- <a href="#">공지사항 &nbsp;</a>
+            <a href="#">서비스 전체보기</a> -->
+            </div>
+            <div class="bottom_box">
+                <ul>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인재채용</a></li>
+                    <li><a href="#">제휴제안</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function(a, b) {
+            let sum = a + b;
+            console.log(`함수 실행 결과 : ${sum}`)
+        })(100,200);
+    </script>
+    <script>
+        (function() {
+            let username = prompt(`이름을 입력하세요.`);
+            alert(`${username}님, 안녕하세요?`);
+        })();
+    </script>
+    <!-- 타입 -->
+    <!-- (function() {
+        ...
+    })(); // 인자가 없을 때
+
+    (function(매개변수) {
+        ...
+    })(인수); //인자가 있을 때 -->
+</body>
+</html>
+
+<!-- 즉시시행함수
+지금까지는 함수를 선언한 후 실행 -> 같은 함수를 여러번 실행할 수 있음
+한번만 사용하는 함수라면 -> 선언과 동시에 실행할 수 있다. -->

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #box.hover {
+            background-color: blue;
+            border-radius: 50px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            $('#box').hover(function(){
+                // 스타일을 변경합니다.
+                $('#box').addClass('hover');
+            }, function(){
+                // 스타일을 변경합니다.
+                $('#box').removeClass('hover');
+            });
+        });
+    </script>
+</head>
+<body>
+        
+</body>
+</html>
+<!-- 클래스 조작메소드
+addCLass() 클래스 추가
+removeClass() 클래스 제거 
+toggleClass() 클래스 전환 -->

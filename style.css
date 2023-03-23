@@ -1,0 +1,83 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family:sans-serif;
+  
+  }
+  
+  body {
+    background-image:#34495e;
+  }
+  
+  .box{
+    position: absolute;
+    width: 400px;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid #adadad;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #636e72;
+  }
+
+  /* .joinForm {
+    position:absolute;
+    width:400px;
+    height:400px;
+    padding: 30px, 20px;
+    background-color:#FFFFFF;
+    text-align:center;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    background-color: #6c5ce7; 
+    } */ 
+  
+  .joinForm h2 {
+    text-align: center;
+    margin: 30px;
+  }
+  
+  .textForm {
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+  }
+  
+  /* 아이디 ~ 전화번호 div box */
+  .line {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .btn {
+    position:relative;
+    left:40%;
+    transform: translateX(-50%);
+    margin-bottom: 30px;
+    width:80%;
+    height:40px;
+    background: linear-gradient(125deg,#81ecec,#7869ec,#81ecec);
+    background-position: left;
+    background-size: 200%;
+    color:white;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+  }
+  
+  .btn:hover {
+    background-position: right;
+  }

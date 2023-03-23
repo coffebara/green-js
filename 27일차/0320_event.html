@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트 객체의 프로퍼티</title>
+    <style>
+        /* div 태그는 텍스트가 출력 될 부분 */
+        div {
+            background-color: skyblue;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h3>마우스 이벤트 객체의 프로퍼티와 onmousemove</h3>
+    <p>이미지 위에 마우스를 움질일 때
+    onmousemove 리스너가 실행되고, 마우스 위치를 보여줌</p>
+    <img src="c:\media\mio.png" onmousemove="where(event)">
+    <p>
+        <!-- 이 부분에 좌표 정보 생성 초기에 아무것도 입력해두지 않아서 안보이는 것 -->
+    </p>
+    <div id="div"></div>
+    <script>
+        // id가 div인 태그의 값을 변수 div에 저장한다.
+        var div = document.getElementById("div");
+        function where(e){
+            //js에서 좌표는 좌상단이 0,0 이며,
+            // 우하단으로 갈수록 증가한다.
+            // var text = "버튼=" + e.button + "<br>";
+            var text = "";
+            text += "(screenX, screenY)=" +e.screenX + "," + e.screenY + "<br>"; 
+            text += "(clientX, clientY)=" +e.clientX + "," + e.clientY + "<br>"; 
+            text += "(offsetX, offsetY)=" +e.offsetX + "," + e.offsetY + "<br>"; 
+            text += "(pageX, pageY)=" +e.pageX + "," + e.pageY + "<br>"; 
+            // 입력된 텍스트 정보를 div 태그에 전송
+            // clientX, clientY 브라우저 윈도우의 문서출력영역 내의 마우스 좌표
+            // offsetX, offsetY 타겟(이벤트 영역) 객체 내에서의 마우스 좌표
+            div.innerHTML = text;
+        }
+    </script>
+</body>
+</html>

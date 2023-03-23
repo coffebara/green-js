@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let count = 0;
+        let intervalId;
+
+        let greeting = () => {
+            aa = document.getElementById("aaa");
+            aa.innerText=(`hi${count}`);
+            count++;
+        }
+
+
+        console.log(intervalId)
+        let start = () => {
+            intervalId = setInterval(greeting),1
+            console.log(intervalId)
+        }
+            
+        let stop = () => {
+            clearInterval(intervalId);
+            console.log(intervalId)
+        }
+        
+
+            // let start = () => {setInterval(greeting),1}
+            
+            // let stop = () => {clearInterval(greeting)};
+
+
+
+    </script>
+    <button onclick="stop()">멈춰</button>
+    <button onclick="start()">진행시켜</button>
+    <p id="aaa"></p>
+
+</body>
+</html>
+

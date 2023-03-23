@@ -1,0 +1,41 @@
+<!-- 
+    가시성 속성
+    어떤 요소를 보이게 하거나 반대로 보이지 않게 할 떄 사용
+
+    디스플레이 속성
+    가시성 속성과 반대로 요소가 차지하는 공간도 사라짐
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .v1 {
+                visibility: hidden;
+                border: 1px dotted red;
+            }
+            .v2 {
+                visibility: visible;        
+                border: 1px dotted red;
+            }
+            .v3 {
+                display: none;
+                border: 1px dotted red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="v1"><!-- 잘 보이지 않도록 설정: 공간 있음-->
+            <img src="C:\media\pic1.jpg">
+        </div>
+        <div class="v2">
+            <img src="C:\media\pic1.jpg">
+        </div>
+        <div class="v3"><!-- 보이지 않도록 설정: 공간 삭제-->
+            <img src="C:\media\pic1.jpg">
+        </div>
+    </body>
+</html>

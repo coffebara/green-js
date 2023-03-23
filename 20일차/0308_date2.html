@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>수요일 pink, 다른 요일은 gold</h3>
+    <script>
+        var day = new Date();
+        // 요일 배열 변수를 선언하고
+        var week = new Array("일", "월", "화", "수", "목", "금", "토");
+        // day.getDay() : 날짜 객체에 현재 날씨를 저장하는 메소드
+        var a = day.getDay();
+        console.log(a);
+        // 날짜가 수요일일 경우 분홍색
+        if(week[a]=="수"){
+            document.body.style.backgroundColor = "pink";
+        } else {
+            document.body.style.backgroundColor = "gold";
+            // +나 ,나 둘다 문자랑 변수 연결한다.
+            document.write("오늘: ", day.getDate(), "일" , week[a], "요일");
+            // document.write(day.getDate(), "일" + week[a] + "요일");
+        }
+    </script>
+</body>
+</html>
+<!-- 
+    var current = new Date();
+    일요일:0,  토요일:6, 목요일:4
+    if(current.getDay() ==4)
+    배열은 Array 객체
+    []로 생성해도 Array 객체로 다루어짐
+ -->

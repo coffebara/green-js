@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <style>
+            /* 모달 */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .container {
+                width: 100%;
+            }
+            .modal-btn-box {
+                width: 100%;
+                text-align: center;
+            }
+            .modal-btn-box button {
+                display: inline-block;
+                width: 150px;
+                height: 50px;
+                background-color: #ffffff;
+                border: 1px solid #e1e1e1;
+                cursor: pointer;
+                padding-top: 8px;
+            }
+            
+            .popup-wrap {
+                background-color: rgba(0, 0, 0, 0.3);
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: none;
+                padding: 15px;
+            }
+            .popup {
+                width: 100%;
+                max-width: 800px;
+                background-color: #ffffff;
+                overflow: hidden;
+                background-color: #ff7200;
+                box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+            }
+            .popup-head {
+                width: 100%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .head-title {
+                font-size: 38px;
+                font-style: italic;
+                font-weight: 700;
+                letter-spacing: -3px;
+                text-align: center;
+            }
+            .popup-body {
+                width: 100%;
+                background-color: #ffffff;
+            }
+            .body-content {
+                width: 100%;
+                padding: 30px;
+            }
+            .body-titleBox {
+                text-align: center;
+                width: 100%;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+            .body-contentBox {
+                display: flex;
+                align-items: stretch;
+                word-break: break-word;
+                overflow-y: auto;
+                min-height: 400px;
+                max-height: 500px;
+            }
+            .popup-foot {
+                width: 100%;
+                height: 50px;
+            }
+            .pop-btn {
+                display: inline-flex;
+                width: 50%;
+                height: 100%;
+                float: left;
+                justify-content: center;
+                align-items: center;
+                color: #ffffff;
+                cursor: pointer;
+            }
+            .pop-btn.confirm {
+                border-right: 1px solid #ffffff;
+            }
+            #left {
+                /* align-items: stretch; */
+                display: flex;
+                vertical-align: middle;
+                width: 50%;
+                height: auto;
+                align-items: center;
+                justify-content: center;
+            }
+            #right {
+                width: 50%;
+                height: 100%;
+            }
+            .storeName {
+                font-weight: bold;
+                color: #0066cc;
+                margin-top: 40px;
+                font-size: 20px;
+                /* text-align: center; */
+            }
+            .place {
+                color: #888888;
+                /* text-align: center; */
+            }
+            .merit{
+                color: #888888;
+                font-style: italic;
+            }
+
+            /* masonry */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                transition: all 0.2s linear;
+            }
+            img:hover {
+                cursor: pointer;
+                /* 어두워지게 */
+                filter: brightness(70%);
+            }
+            /* 클론 hover 없애기 */
+            .cloned-img:hover {
+                filter: none;
+                cursor: default;
+            }
+            .box {
+                margin: 5px;
+                overflow: hidden;
+            }
+            #contents {
+                /* masonry의 columnWidth 속성값이 160이므로 margin-right는 left의 -50으로 설정 */
+                /*  정중앙 맞추는 방법 아직 모르겠음 */
+                margin: 60px 100px 20px 150px;
+            }
+            header > div {
+                /* 위치설정 */
+                height: 50px;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 99999;
+                /* 박스 모양 */
+                /* box-sizing: border-box; */
+                box-shadow: 0 4px 11px rgb(0 0 0 / 10%);
+                background-color: #ffffff;
+                background-image: url("foodImg/header.jpg");
+                background-size: cover;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                var hFoodImgs = [];
+                for (var i = 0; i < 30; i++) {
+                    hFoodImgs[i] = `<div><img src="foodImg/h${i + 1}.jpg" class="h"></div>`;
+                }
+                // 중식
+                var jFoodImgs = [];
+                for (var i = 0; i < 11; i++) {
+                    jFoodImgs[i] = `<div><img src="foodImg/j${i + 1}.jpg" class="j"></div>`;
+                }
+                //일식
+                var iFoodImgs = [];
+                for (var i = 0; i < 20; i++) {
+                    iFoodImgs[i] = `<div><img src="foodImg/i${i + 1}.jpg" class="i"></div>`;
+                }
+                //분식
+                var bFoodImgs = [];
+                for (var i = 0; i < 9; i++) {
+                    bFoodImgs[i] = `<div><img src="foodImg/b${i + 1}.jpg" class="b"></div>`;
+                }
+                //아시안푸드
+                var aFoodImgs = [];
+                for (var i = 0; i < 2; i++) {
+                    aFoodImgs[i] = `<div><img src="foodImg/a${i + 1}.jpg" class="a"></div>`;
+                }
+                //양식
+                var yFoodImgs = [];
+                for (var i = 0; i < 10; i++) {
+                    yFoodImgs[i] = `<div><img src="foodImg/y${i + 1}.jpg" class="y"></div>`;
+                }
+                // 배열 합치기
+                const foodImgs = [...hFoodImgs, ...jFoodImgs, ...iFoodImgs, ...bFoodImgs, ...aFoodImgs, ...yFoodImgs];
+
+                
+
+                // 중복없는 랜덤 이미지
+                for (var i = 0; i < foodImgs.length; i++) {
+                    var tmp = 0;
+                    var ran = Math.floor(Math.random() * foodImgs.length);
+                    tmp = foodImgs[i];
+                    foodImgs[i] = foodImgs[ran];
+                    foodImgs[ran] = tmp;
+                }
+
+                // 랜덤 높이
+                for (var i = 0; i < foodImgs.length; i++) {
+                    $(`${foodImgs[i]}`)
+                        .addClass("box")
+                        .css({
+                            width: 150,
+                            height: Math.floor(Math.random() * 140) + 90,
+                        })
+                        .appendTo("#contents");
+                }
+                $("#contents").masonry({
+                    columnWidth: 160,
+                });
+            });
+
+            $(function () {
+                $("#confirm").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                    //컨펌 이벤트 처리
+                });
+
+                $("img").click(function () {
+                    $("#popup").css("display", "flex").hide().fadeIn();
+                    var $clone = $(this).clone().addClass("cloned-img"); // create a clone of the clicked image
+                    $("#left").append($clone); // append the clone to the desired location
+                    $clone.css({
+                        // modify the clone's CSS as desired
+                        width: "300px",
+                        height: "300px",
+                    });
+
+                    // 음식 메뉴 띄우기
+                    var today = 0;
+                    // attr('ID || CLASS')
+                    var foodType = $(this).attr("class");
+                    switch (foodType) {
+                        case "h":
+                            today = "한식";
+                            break;
+                        case "j":
+                            today = "중식";
+                            break;
+                        case "i":
+                            today = "일식";
+                            break;
+                        case "b":
+                            today = "분식";
+                            break;
+                        case "a":
+                            today = "아시안";
+                            break;
+                        case "y":
+                            today = "양식";
+                            break;
+                    }
+                    // 가게 소개 멘트
+                const storeName = [
+                    "30년 전통 맛집",
+                    "50년 전통 맛집",
+                    "할머니 손 맛집",
+                    "엄마 손 맛집",
+                    "상준이네",
+                    "철준이네",
+                    "주홍이네",
+                    "현승이네",
+                    "동메꽃",
+                    "이매 기사식당",
+                    "판교 기사식당",
+                    "야탑 기사식당",
+                    "점심 천국",
+                    "원조 할매집",
+                    "원조 할배집",
+                ];
+
+                const place = [
+                    "구미동 | 미금역",
+                    "구미동 | 미금역",
+                    "금곡동 | 미금역",
+                    "구미1동 | 미금역",
+                    "구미동 | 동천역",
+                    "죽전2동 | 동천역",
+                    "정자동 | 정자역",
+                    "보정동 | 죽전역",
+                    "백현동 | 판교역",
+                    "삼평동 | 판교역",
+                    "이매1동 | 이매역",
+                    "서현1동 | 서현역",
+                    "성남동 | 모란역",
+                    "수진동 | 수진역",
+                    "신흥동 | 신흥역",
+                ];
+
+                const userComment = [
+                    `"단체석도 있어서 회식하기 아주 좋았습니다."`,
+                    `"양도 많고 맛도 좋아서 가성비 아주 훌륭하네요 !"`,
+                    `"김치 맛집입니다! 직접 담그시나봐요"`,
+                    `"유튜버 추천 유명한 맛집답게 사람이 북적거려서 바쁜 시간대는 피하는게 좋겠네요ㅠ 그래도 기다린 보람이 있었습니다"`,
+                    `"1시간의 웨이팅을 뚫고 방문. 맛은 무난무난했지만, 가격과 양을 생각하면 대적불가! 재발문 의사 O"`,
+                    `"근처에서 점심 먹을 때 간단하게 먹기 좋은 집. 사장님도 매우 친절하심"`,
+                    `"보통 여느 가게면 혼자서 뚝딱 하는데 굉장히 푸짐하네요ㅎㅎ"`,
+                    `"신선한 재료, 맛, 구성, 친절도 모두 대만족입니다"`,
+                    `"리뉴얼로 내부 인테리어도 깔끔해지고 더 청결해진 것 같아요!"`,
+                    `"음식은 전체적으로 만족스러웠습니다 가격이 살짝 있는데 요즘 물가 생각하면 괜찮은 것 같아요 재방문 의사 90%"`,
+                    `"회사 근처에 이런 맛집이 있었다니.. 깜짝 놀랬어요. 줄이 어마어마하더라는 :) "`,
+                    `"가난한 학생인데 여기 맛도 괜찮고 양도 푸짐해서 매일 가고 있습니다."`,
+                    `"엄마가 예전에 해주셨던 맛이나네요 그리워서 계속 가게 됩니다"`,
+                    `"오랜만에 방문했는데 역시나 가격 혜자스럽습니다. 새로운 메뉴도 늘었던데 믿고 시킵니다 ㅎㅎ"`,
+                    `"와썹맨에도 나왔던 혜자스러운 가성비로 제가 방문했을땐 방송때보다 천원 올랐지만 여전히 저렴해 맘에 들었습니다"`,
+                ];
+
+                const score = [
+                    "88점 ★4.4(65명) ♡ 83",
+                    "89점 ★4.6(165명) ♡ 603",
+                    "94점 ★4.8(2456명) ♡ 8603",
+                    "97점 ★4.7(412명) ♡ 639",
+                    "99점 ★4.9(1290명) ♡ 5956",
+                    "98점 ★4.8(1065명) ♡ 7013",
+                    "89점 ★4.1(620명) ♡ 503",
+                    "85점 ★4.3(452명) ♡ 593",
+                    "83점 ★4.2(94명) ♡ 800",
+                    "90점 ★4.7(1001명) ♡ 4099",
+                    "90점 ★4.6(1705명) ♡ 5904",
+                    "96점 ★4.8(265명) ♡ 301",
+                    "92점 ★4.6(3363명) ♡ 10985",
+                    "83점 ★4.0(2165명) ♡ 9059",
+                    "87점 ★4.2(4665명) ♡ 31592",
+                ];
+
+                const merit = [
+                    `"역에서 가까워요"`,
+                    `"역에서 가까워요"`,
+                    `"런치 할인이 있어요"`,
+                    `"런치 할인이 있어요"`,
+                    `"친절해요!"`,
+                    `"친절해요!"`,
+                    `"음식이 빨리 나와요!"`,
+                    `"양이 푸짐해요!"`,
+                    `"화장실이 깨끗해요!"`,
+                    `"반찬 무한리필!"`,
+                    `"반찬 무한리필!"`,
+                    `"국내산 재료만 써요!"`,
+                    `"국내산 재료만 써요!"`,
+                    `"역에서 가까워요!"`,
+                    `"예약 주문이 가능해요!"`,
+                ]
+                    document.querySelector(".body-titleBox span").innerText = today;
+                    var ranM = Math.floor(Math.random() * 15);
+                    document.querySelector(".storeName").innerText = storeName[ranM];
+                    document.querySelector(".place").innerText = place[ranM];
+                    document.querySelector(".userComment").innerText = userComment[ranM];
+                    document.querySelector(".score").innerText = score[ranM];
+                    document.querySelector(".merit").innerText = merit[ranM];
+                    
+                });
+                // 가져가버림 ㅋㅋㅋㅋㅋ
+                // $("img").click(function () {
+                //     $("#popup").css("display", "flex")
+                //     .hide()
+                //     .fadeIn();
+                //     $(".body-contentBox").append(this);
+                //     $(this).css({
+                //         width: "300px",
+                //         height: "300px"
+                //     })
+                // });
+
+                //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+
+                $("#close").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                });
+                function modalClose() {
+                    $("#popup").fadeOut(); //페이드아웃 효과
+                    $("#left .cloned-img").remove();
+                    // $clone.remove();
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <!-- 헤드 -->
+        <header>
+            <div></div>
+        </header>
+        <!-- 진짜 컨텐츠 -->
+        <div id="contents"></div>
+        <!-- 모달 영역 -->
+        <div class="container">
+            <div class="popup-wrap" id="popup">
+                <div class="popup">
+                    <div class="popup-head">
+                        <span class="head-title">맛집 여기 ITda</span>
+                    </div>
+                    <div class="popup-body">
+                        <div class="body-content">
+                            <div class="body-titleBox">
+                                <h1>오늘의 <span></span> 맛집</h1>
+                            </div>
+                            <div class="body-contentBox">
+                                <div id="left"></div>
+                                <div id="right">
+                                    <p class="storeName"></p>
+                                    <br />
+                                    <p class="place"></p>
+                                    <br />
+                                    <hr />
+                                    <br />
+                                    <p class="userComment"></p>
+                                    <br />
+                                    <p class="score"></p>
+                                    <br />
+                                    <p class="merit"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-foot">
+                        <span class="pop-btn confirm" id="confirm">확인</span>
+                        <span class="pop-btn close" id="close">창 닫기</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

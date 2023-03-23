@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1 id="title">My Profile</h1>
+    <div id="profile">
+        <img src="../../0401.jpg" alt="도레미">
+        <div id="desc">
+            <p class="user">이름 : 도레미</p>
+            <p class="user">주소 : somewhere</p>
+            <p class="user">연락처 : 1234-5678</p>
+        </div>
+    </div>
+
+    <script src="js/classlist-9.js"></script>
+</body>
+</html>
+<!-- contains() - 특정 클래스 스타일 있는지
+제목을 클릭하면 배경색과 글자색이 바뀌는데, 원래 상태로 되돌아가지는 않는다.
+추가했던 클래스 스타일을 제거하면 원래대로 돌아간다
+그러기 위해서느 특정 클래스 스타일이 있는지 체크할 수 있어야 한다
+-> classList의 contains() 함수 사용
+요소.classList.contains(클래스명)
+힌트 1) contains() 함수를 사용해서 .clicked 스타일이 있는지 살펴보고,
+    2) .cliked 스타일이 있다면 remove()를 사용해서 제거한다
+
+    -->
+
+<!-- getElementsByClassName() 메서드는 HTMLCollection이 반환됩니다.
+HTMLCollection은 배열과 비슷한 형태를 가지고 있지만,
+실제로 배열이 아닌 유사 배열 객체입니다.
+이러한 HTMLCollection은 배열과 다르게 forEach()와 같은 배열 메서드를 사용할 수 없습니다.
+
+따라서, getElementsByClassName() 메서드로 선택한 요소에 대해서는 for 루프나
+Array.from() 메서드를 사용하여 배열 형태로 변환해주어야 forEach()와 같은
+배열 메서드를 사용할 수 있습니다.
+
+var user = document.getElementsByClassName("user");
+-->

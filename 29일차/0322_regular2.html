@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+    <script>
+        function process() {
+            var id = document.getElementById("mid").value;
+            // 정규표현식
+            // 연, 월, 일을 나타내는 정규 표현식으로
+            // [0-9]{4} : 0~9까지 4가지의 숫자를 받아 연도를 받고
+            // (0[1-9]|1[0-2]) : 첫번째 숫자는 1~9까지, 두번째 숫자는 0~2까지, 즉 1월부터 12월을 나타낸다
+            // 0[1-9]|1[0-9]|2[0-9]|3[01] : 01부터 31까지 나타낸다. 1일~31을 나타냄
+            // var patt = new RegExp("^1|2[0-9]{3}\-(0[0-9]|1[0-2])\-(0[0-9]|1[0-9]|2[0-9]|3[01])$");
+            var patt = new RegExp("[0-9]{4}\-(0[0-9]|1[0-2])\-(0[0-9]|1[0-9]|2[0-9]|3[01])");
+            // test() 메서드는 주어진 문자열이 정규 표현식을 만족하는지 판별하고, 그 여부를 true 또는 false로 반환
+            if(patt.test(id)) {
+                alert("입사축하");
+            }
+            else {
+                alert("다시 입력");
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <label>날짜입력</label>
+    <input type="text" name="mid" id="mid">
+    <input type="button" value="commit" onclick="process()">
+</body>
+</html>
+<!-- 
+    정규 표현식에서 역 슬래시 \는 하이픈(-) 앞에 사용되어 ㅌ특수문자가 아닌
+    문자 그대로의 하이픈 문자와 일치하도록 합니다... 이스케이프 문자라고 합니다
+    날짜 형식의 구분 기호로 사용되는 하이픈을 올바르게 인식할 수 있습니다
+
+    두 변수의 값 교환하기
+    구조 분해를 사용하면 두 변수의 값을 서로 교환해서 할당할 때도 편리하다
+    예) let x = 10, let y =20
+    일반적인 방법   ... 임시변수를 만들어서 하는방법이다
+        let tmp
+        tmp = x;
+        x - y;
+        y = tmp
+
+    구조 분해를 사용한 방법
+    [x,y] [y,x]
+
+
+ -->

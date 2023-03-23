@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>물품을 선택하면 금액이 자동으로 계산됩니다</h3>
+    <form>
+        <!-- 체크박스에 체크를 하면 바로 calc 함수로 객체 정보를 이동시킴 -->
+        <input type="checkbox" name="cap" value="10000" onclick="calc(this)">모자 만원
+        <input type="checkbox" name="shoes" value="30000" onclick="calc(this)">구두 3만원
+        <input type="checkbox" name="bag" value="80000" onclick="calc(this)">명품가방 8만원
+        <!-- 여기에 calc 함수의 sum 값이 출력된다. -->
+        지불하실 금액 <input type="text" id="subtext" value="0">
+    </form>
+</body>
+<script src="js/0320_checkbox.js"></script>
+</html>

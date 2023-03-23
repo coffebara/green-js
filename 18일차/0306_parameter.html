@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var n = parseInt(prompt());
+        function calcSum(n) {
+            let sum = 0;
+            for(let i = 1; i < n; i++){
+                sum += i;
+            }
+            document.write(`1부터 ${n}까지 더하면 ${sum}입니다.`);
+        }
+    </script>
+</body>
+</html>
+<!-- 
+    매개변수
+    함수를 선언할 때 외부에서 값을 받는 변수
+    함수 이름 옆의 괄호 안에 매개변수 이름을 넣어준다
+    매개변수에 이름을 붙이는 방법은 일반적인 변수 이름을 부이는 방법과 같다.
+    매개변수는 선언된 함수에서만 사용한다.
+    함수에 여러개의 매개변수가 필요 할때에는 매개변수 사이에 쉼표(,)를 찍으면서 나열한다.
+    인수
+    매개변수가 있는 함수를 실행할 때, 매개변수로 값을 넘겨주는 변수
+    인자
+    매개변수와 인수를 통틀어서 인자라고 한다
+-->

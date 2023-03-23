@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+    </script>
+    <style>
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .popup{
+            /* 좌상단 모퉁이부터 확대되어 튀어나오고 우하단 모퉁이가 확대되어 따라오는 느낌 */
+            width: 200px; height: 200px;
+            perspective: 1000px; /* 3d시각효과의 정도를 결정함 */
+
+        }
+        .box{
+            width: 200px; height: 200px;
+            background-color: yellow;
+            transition: 3s linear;
+            transform-style: preserve-3d;
+        }
+        .box:hover{
+            transform-origin: 0% 0%;
+            transform: scale3d(300%,200%,300%)
+        }
+        이거 미니프로젝트보다 어렵겠는데?
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="popup">
+            <div class="box">안녕하세요</div>
+        </div>
+    </div>
+</body>
+</html>

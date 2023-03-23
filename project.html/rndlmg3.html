@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘 뭐먹지?</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <style>
+        *{margin:0; padding: 0;}
+        .box{
+            /* 박스 크기 */
+            margin: 10px;
+            width: 250px;
+            height: 300px;
+            display: flex;
+            justify-content: center;            
+        }
+        img{
+            width: 100%;    
+            height: 100%;   
+            border-radius: 10px;
+            object-fit: cover;
+            position: relative;
+            left: -200px;
+        }
+        /* img:hover{
+            어두워지게
+            filter: brightness(70%); 
+            z-index: -999;
+            z-index를 겹치는 영역보다 낮게 먹이니까 hover가 안잡힘
+        } */
+        a{
+            /* 텍스트 */
+            color: white;
+            font-size: 18px;
+            font-weight: bolder;    
+            font-family: "hanna";
+            /* 텍스트 쉐도우로 mark 효과! 글씨가 더 잘보여요! */
+            text-shadow: 6px 6px 16px rgba(0 0 0 / 90%);
+            text-decoration:none;
+            /* 영역 */
+            position: absolute;
+            top: 70px;
+            z-index: 999;
+        }
+        span{
+            font-size: 23px;
+        }
+
+    </style>
+    <script>
+            var hFoodImgs = [];
+            for(var i = 0; i<30; i++){
+                hFoodImgs[i] = `<img src="foodImg/h${i+1}.jpg" class="h">`;
+            };
+            // 중식
+            var jFoodImgs = [];
+            for(var i = 0; i<11; i++){
+                jFoodImgs[i] = `<img src="foodImg/j${i+1}.jpg" class="j">`;
+            };
+            //일식
+            var iFoodImgs = [];
+            for(var i = 0; i<20; i++){
+                iFoodImgs[i] = `<img src="foodImg/i${i+1}.jpg" class="i">`;
+            };
+            //분식
+            var bFoodImgs = [];
+            for(var i = 0; i<9; i++){
+                bFoodImgs[i] = `<img src="foodImg/b${i+1}.jpg" class="b">`;
+            };
+            //아시안푸드
+            var aFoodImgs = [];
+            for(var i = 0; i<2; i++){
+                aFoodImgs[i] = `<img src="foodImg/a${i+1}.jpg" class="a">`;
+            };
+            //양식
+            var yFoodImgs = [];
+            for(var i = 0; i<12; i++){
+                yFoodImgs[i] = `<img src="foodImg/y${i+1}.jpg" class="y">`;
+            };
+            // 배열 합치기
+            const foodImgs = [
+                ...hFoodImgs,
+                ...jFoodImgs,
+                ...iFoodImgs,
+                ...bFoodImgs,
+                ...aFoodImgs,
+                ...yFoodImgs
+            ];
+
+        $(document).ready(function(){
+            // 랜덤 값
+            var ran = Math.floor(Math.random()*foodImgs.length);
+            //  이미지 출력
+            $(`${foodImgs[ran]}`).appendTo('.box').animate({left:"0px"},70);
+
+
+            // 음식 메뉴 띄우기
+            var today = 0;
+            // attr('ID || CLASS')
+            var foodType = $(foodImgs[ran]).attr('class'); 
+            switch(foodType){
+                case "h" : today = "한식";
+                break;
+                case "j" : today = "중식";
+                break;
+                case "i" : today = "일식";
+                break;
+                case "b" : today = "분식";
+                break;
+                case "a" : today = "아시안";
+                break;
+                case "y" : today = "양식";
+                break;
+            }
+            document.querySelector('.box span').innerText += today;
+        // document.write(today);
+        // document.write(foodType);
+        // console.log(today);
+        // console.log(foodType);
+
+        $('a').hover(function(){
+            $('img').css({
+                "filter" : "brightness(70%)"
+            })
+        }).mouseleave(function(){
+            $('img').css({
+                "filter" : "brightness(100%)"
+            })
+        })
+        });
+        
+    </script>
+
+
+</head>
+<body>
+    <div class="box">
+        <a href="masonry.html" target="_top">
+            오늘 {
+                <span></span>
+            } 어때?
+    </div>
+</body>
+</html>
+
+<!--
+    background-size : cover;
+    배경이미지의 가로, 세로 길이 모두 요소보다 크다는 조건하에 가능한 배경 이미지를 작게 조정합니다. 
+    가로, 세로 비율은 유지됩니다. 따라서 배경 이미지의 크기는 요소의 크기보다 항상 크거나 같습니다.  -->

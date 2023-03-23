@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전개구문</title>
+</head>
+<body>
+    <script>
+        fruits = ["apple", "banana", "grape", "망고"];
+        console.log(fruits);
+        console.log(...fruits)
+        console.log(...fruits[2])
+    </script>
+
+
+    <script>
+        weekMovie1 = ["범죄의 도시", "황해" , "아바타"];
+        weekMovie2 = ["슬램덩크", "귀멸의 칼날"];
+        weekMovie3 = ["블랙앤블랙"];
+        weekMovie4 = ["톰과 제리" , "인어공주", "아이언맨5"];
+
+        monthMovie1 = [weekMovie1,weekMovie2,weekMovie3,weekMovie4];
+        monthMovie2 = [...weekMovie1, ...weekMovie2, ...weekMovie3, ...weekMovie4];
+
+        console.log(monthMovie)
+        document.write(weekMovie1);
+        document.write(monthMovie1);
+        document.write(monthMovie2);
+    </script>
+</body>
+</html>
+<!-- 
+    전개구문
+        값만 꺼내서 펼쳐주는 구문
+        마침표 3개(...)를 사용해서 표현
+    
+    문자열이나 배열, 객체처럼 여러개의 값을 담고 있는 값만 꺼내 사용하려고 할 때 유용함-->

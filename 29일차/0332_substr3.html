@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>setInterval()로 텍스트 회전</title>
+    </head>
+    <body>
+        <h3>텍스트가 자동 회전하며, 클릭으로 가속, 스페이스바로 감속할 수 있습니다.</h3>
+        <h4>또한 b(B)로 방향을 바꿀 수 있습니다.</h4>
+        <hr />
+        <div>
+            <span id="div" style="background-color: yellow">자동 회전하는 텍스트입니다.</span>
+        </div>
+        <script>
+            var div = document.getElementById("div");
+            var body = document.querySelector("body");
+            var timerID = setInterval("doRotate()", 200);
+
+            var isMove = true;  // 회전 스위치
+            var count = 1;      // 회전 속도
+            var isRight = true; // 회전 방향
+    
+            // 가속
+            div.addEventListener("click", function () {
+                if (!isMove) {
+                    timerID = setInterval("doRotate()", 200/++count);
+                    isMove = true;
+                } else {
+                    clearInterval(timerID);
+                    isMove = false;
+                }
+                return count;
+            });
+
+            body.addEventListener("keydown", function (e) {
+                var key = e.key;
+                switch(key){
+                    case " " :      // 감속
+                        if (!isMove) {
+                            timerID = setInterval("doRotate()", 200/--count);
+                            isMove = true;
+                        } else {
+                            clearInterval(timerID);
+                            isMove = false;
+                        }
+                        return count;
+                        break;
+
+                    case "b" :
+                    case "B" : // 역방향
+                        if (!isRight) {
+                            clearInterval(timerID);
+                            timerID = setInterval("doRotate()", 200/count);
+                            isRight = true;
+                            console.log(count);
+                        } else {
+                            clearInterval(timerID);
+                            timerID = setInterval("doRotateReverse()", 200/count);
+                            isRight = false;
+                            console.log(count);
+                        }
+                        return isRight;
+                        break;
+                }
+            });
+
+
+            // 정회전
+            function doRotate() {
+                var str = div.innerHTML;
+                var firstChar = str.substr(0, 1);
+                var remains = str.substr(1, str.length - 1);
+                str = remains + firstChar;
+                div.innerHTML = str;
+            }
+            // 역회전
+            function doRotateReverse() {
+                var str = div.innerHTML;
+                var lastChar = str.substr(str.length-1, str.length);
+                var remains = str.substr(0, str.length-1);
+                str = lastChar + remains ;
+                div.innerHTML = str;
+            }
+        </script>
+    </body>
+</html>

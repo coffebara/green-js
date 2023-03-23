@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const id = Symbol("id");
+        const tel = Symbol("telephone number")
+        const member = {
+            name : "kim",
+            age : 25,
+            [id] : 12345,
+            [tel] : function () {
+                alert(prompt("전화번호 : "));
+            }
+        }
+
+        for(item in member) {
+            console.log(`${item} : ${member[item]}`)
+        }
+        //심벌 (Symbol)
+        // ECMAScript2015 이후에 추가된 새로운 원시 자료형
+        // 한 번 정의하면 값을 변경할 수 없고 유일한 값을 갖는다
+        // 2명 이상의 개발자가 하나의 프로그램을 개발할 때 변수나 프로퍼티 이름을 같게 만드는 실수를 피할 수 있다.
+        // 심벌을 사용해 프로퍼티 정의하기
+        // 객체를 만들면서 일부 정보를 드러내고 싶지 않을 때 심볼사용
+
+        // 심벌키에 접근하기
+        // 심컬키를 사용한 프로퍼티나 메서드에 접근하려면 대괄호를 사용한다.
+        // 심벌키를 사용한 메서드를 실행할 때는 대괄호의 오른쪽에 소괄호(())를 붙인다.
+        const id = Symbol("id")
+        const tel = Symbol("telephone number")
+        const member = {
+            name : "kim",
+            age : 25,
+            [id] : 1235,
+            [tel] : function() {
+                alert(prompt("전화번호 : "));
+            }
+        }
+        // 프롬프트 창에 전화번호를 입력하면 알림 창에 표시
+        const id = Symbol("id")
+        const tel = Symbol("telephone number")
+        const member = {
+            name : "kim",
+            age : 25,
+            }
+        let {name, age} = member
+        name    // 'kim'
+        age     // 25
+
+        const member = {
+            name : "kim",
+            age : 25,
+            }
+        
+            let{name: userName, age} = member
+
+            userName    // 'kim'
+            
+
+            //객체 구조 분해
+            //변수의 이름을 객체의 프로퍼티 이름이 아닌 다른 이름으로 지정하려면
+            const student = {
+                name : "도레미",
+                score : {
+                    history : 85,
+                    science : 94
+                },
+                friend : ["kim", "Lee", "Park"]
+            }
+
+            let {
+                name,           // student.name의 값
+                score : {
+                    history,    // student.score.history의 값
+                    science     // student.score.science의 값
+                },
+                friend : [f1, f2, f3]   // friends 배열 구조 분해
+            } = student
+
+            student.score.history // 85
+            student.score.science // 94
+            f1  // 'kim'
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const name = "june";
+
+        const myObj = {
+            name: "Alice",
+            greet: function() {
+                console.log(`Hello, ${this.name}!`);
+            },
+            greetArrow: () => {
+                console.log(`Hello, ${this.name}!`);
+            }
+        };
+        myObj.greet();
+        myObj.greetArrow();
+
+        // myObj 객체에서는 greet 메서드와 greetArrow매서드가 있습니다.
+        // greet 메서드는 일반 함수로 정의되어 있으며, greetArrow메서드는 화살표 함수로 정의되어 있습니다.
+        // greet 메서드에서 this 키워드는 myObj 객체를 가리키며,
+        // greetArrow메서드에서 this 키워드는 상위 스코프의 this 값을 참조합니다. 
+
+        // 따라서, 다음과 같이 myObj 객체의 greet 메서드를 호출하면 "Hello, Alice!"가 출력되지만,
+        // greetArrow매서드를 호출하면 "Hello, undefined!"가 출력됩니다.
+
+        // 콜백 함수에서의 this는 함수를 호출하는 방법에 따라서 달라집니다.
+        // 콜백함수를 일반함수로 정의하면, this는 콜백함수를 호출한 객체를 가리키게 됩니다.
+        // 반면에 콜백함수를 화살표 함수로 정의하면, this는 상위 스코프의 this값을 그대로 상속합니다.
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+<!-- 
+    this 키워드는 함수를 호출할 때, 호출한 객체를 참조합니다. 따라서 함수가 호출되는 방식에 따라 this 키워드가 가리키는 대상이 달라집니다.
+
+    일반 함수에서의 this : 일반 함수에서 this 키워드는 함수를 호출한 객체를 참조합니다. 이 때, 
+    함수 호출 시점에 따라 this 키워드가 가리키는 대상이 달라집니다. 일반적으로 함수가 전역 객체
+    에서 호출되면 this 키워드는 전역 객체를 참조합니다. 그러나 함수가 객체의 메서드로 호출되면
+    this 키워드는 해당 객체를 참조합니다.
+
+    콜백 함수에서의 this : 콜백 함수는 다른 함수에 인자로 전달되어 실행되는 함수를 말합니다. 이 때,
+    콜백 함수의 this 키워드는 호출한 객체와 관련이 있습니다. 만약 콜백 함수가 일반함수로 
+    정의되어 있으면, this 키워드는 함수를 호출한 객체를 가리키게 됩니다. 하지만 콜백 함수가 화살표
+    함수로 정의되어 있으면, this 키워드는 상위 스코프의 this 값을 가리키게 됩니다.
+
+    화살표 함수에서의 this: 화살표 함수에서 this 키워드는 함수를 정의할 때의 컨텍스트를 그대로 
+    유지합니다. 즉, this 키워드는 상위 스코프의 this 값을 참조합니다. 따라서, 화살표 함수는 
+    함수를 호출한 객체와 상관없이 항상 상위 스코프의 this 값을 참조합니다.
+
+    이러한 차이점으로 인해, this 키워드를 사용할 때는 함수를 호출하는 방식과 해당 함수를 정의하는
+    방식을 고려하여 사용해야 합니다.
+ -->

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body > div > h3 {
+                color: red;
+            }
+            body > p {
+                color: green;
+                background-color: yellow;
+            }
+            body > h3 > tel > home {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div><h3>Child Selector_1</h3></div>
+        <p>자식 선택자</p>
+        <h3>
+            <sno>12345</sno> <std>김상준</std><br />
+            <tel>
+                <office>02-4567-1010</office><br />
+                <home>010-1234-5678</home>
+            </tel>
+        </h3>
+    </body>
+</html>
+<!-- 가상엘리먼트 선택자 E::forst-line E::first-letter E::before E::after
+    E::before E태그의 시작지점에 생성된 태그를 선택한다
+    E::agter E 태그의 끝지점에 생성된 태그를 선택한다
+-->
+    

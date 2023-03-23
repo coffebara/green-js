@@ -1,0 +1,76 @@
+<!-- 
+    setInterval() : 타임아웃 코드 반복 실행
+    1초 간격으로 f() 반복 호출
+    function f () {
+        // 함수 코드
+    }
+    val timerID = setInterval("f()", 1000);
+    1초 주기로 f()가 호출되도록 타이머 작동
+    타이머 해제
+    clearInterval(timerID);     timerID의 타이머 해제
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval()로 텍스트 회전</title>
+</head>
+<body>
+    <h3>텍스트가 자동 회전하며, 마우스로 클릭하면 중단합니다.</h3><hr>
+    <!-- span 태그 부분의 글자가 계속 순환됨 -->
+    <div>
+        <span id="div" style="background-color: yellow;">자동 회전하는 텍스트입니다.</span>
+    </div>
+    <script>
+        var div  = document.getElementById("div");
+        // 200밀리초 주기로 doRotate() 호출
+        var timerID = setInterval("doRotate()", 200);
+        // 클릭 이벤트 리스너 (div 객체가 클릭되면 무명함수 수행)
+        div.onclick = function(e) {
+            // 타이머 해제, 문자열 회전 중단
+            clearInterval(timerID);
+        }
+        function doRotate() {
+            // div 태그의 텍스트 입력
+            var str = div.innerHTML;
+            //  첫 번째 문자를 획득
+            // str 텍스트의 첫 문자 알아내기 (인데스 0부터 1개수만큼 새로운 문자열 리턴)
+            var firstChar = str.substr(0,1);
+            // 두 번째부터 마지막 문잔 저장
+            var remains = str.substr(1, str.length-1);
+            // 첫 번째 문자를 가장 뒤로 보냄
+            str = remains + firstChar;
+            //  변경 정보를 div 태그로 전송, timer가 지날 때마다 동작 반복
+            // 문자열을 하나씩 지우고 뒤로 이동시킴
+            div.innerHTML = str;
+        }
+    </script>
+</body>
+</html>
+<!-- 
+    Javascript 에서 substr(), substring(), slice() 함수는 모두 문자열을 잘라주는 역할을 한다
+    String.substr(start, length)
+    substr() 함수는, 파라미터로 입력받는 start index부터 length 길이만큼 string을 잘라내어 반환하는 함수
+            length값은 가져올 길이 값이며, 생략가능 (생략 시 start index부터 문장 끝까지 반환)
+            두번째 매개변수인 length값이 음수값일 경우 빈 값을 반환
+            start가 음수일 경우, start의 index는 문자열의 뒤에서부터 시작
+            문자열의 첫 번째 글자의 index는 0에서 시작
+    String.substring(start, end)
+            substring() 함수는 sub()함수와 같이 특정 문자열을 잘라내어 반환
+            substr() 함수와 다른 점은 매개변수로 날라내고 싶은 문자열의 start index부터
+            end index-1 까지의 문자열 반환
+    즉, start index 위치의 문자부터 end index위치의 바로 앞 문자까지를 반환(end index 문자는 미포함)
+            start값이 end값보다 크다면 작은 숫자가 시작위치로 큰 숫자가 종류위치로 자동 셋팅
+            매개변수 둘 중에 한개값이 음수값이라면 시작위치가 0으로 설정됨
+            매개변수가 둘 다 음수값이라면 반환값이 무조건 없다
+            substr() 함수와 마찬가지로 문자열의 index는 0부터 시작
+    string.slice(start, end)
+            slice() 함수는 substring()함수와 사용법이 같다
+            substring() 함수와 마찬가지로 파라미터로 자를 문자열의 start index와 end index를 전달
+            start 값이 end 값보다 크다면 빈 값을 반환
+            start가 음수일 경우, start의 index는 문자열의 뒤에서부터 시작
+            start와 end 둘 중 하나가 음수일 경우 빈 값을 반환
+ -->

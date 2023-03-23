@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>display</title>
+        <style>
+            div {
+                border: 2px solid yellowgreen;
+                color: blue;
+                background: aliceblue;
+            }
+            span {
+                border: 3px dotted red;
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>인라인, 인라인 블록, 블록</h3>
+        <!-- style="display:none" 명령에 의해 출력되지 않음 --> 
+        나는
+        <div style="display: none">div(none)</div>
+        입니다<br /><br />
+        <!-- inline이란
+        컨텐츠(출력대상)범위를 감싸고 있는 선, 컨텐츠와 패딩을 구분하는 선이다 -->
+        <!-- display inline : 해당 요소는 일반적인 인라인 요소처럼 전,후 줄 바꿈 없이 한 줄로 이어짐 -->
+        나는
+        <div style="display: inline">div(inline)</div>
+        입니다. <br /><br />
+        <!-- display: inlinn-block : 해당 요소는 기본적으로 인라인 요소의 특성을 갖지만
+            인라인 요소에서 사용 불가능 했던 width, height, margin, paddin 속성의 사용이 가능해짐-->
+        나는
+        <div style="display: inline-block; height: 50px">div(inlin-black)</div>입니다. <br /><br />
+        <!--  display:block : 해당 요소는 일반적인 블록 요소처럼 전,후 줄 바꿈이 발생 -->
+        나는 <div>div<span style="display:block">div(block)</span>입니다. <br><br></div>
+    </body>
+</html>
+<!-- 배경 색이나 이미지 지정
+background-color, background-image
+둘 다 지정되면 배경 이미지가 출력되지 않는 영역에 배경색 출력
+div {
+    background-color: skyblue;
+    background-image: url("sopongebob.png")
+}
+position
+텍스트, 이미지, 표 등의 요소를 웹 문서에 배치할 때 사용하는 속성
+
+배경 이미지 위치, background-position
+backfround-position: center center;      박스 중간에 이미지 출력
+
+배경 이미지 반복 출력, background-repeat
+background-repeat: repeat-y  세로 이미지 반복 출력
+repeat-x; 가로 반복
+no-repeat; 반복 없음
+repeat; 가로세로 반복
+
+background 단축 프로퍼티
+div {background: url("spongebob.png")} 배경 이미지 지정
+div {background: skyblue;} 배경색을 skyblue로 지정
+div {background: skyblue url("spongebob.png") center center/ 100px 100px repeat-y;}
+
+블록 박스와 인라인 박스
+HTML 태그는 인라인 태그와 블록 태그로 나뉨
+이라인 태그는 인라인 박스, 블록 태그는 블록 박스로 출력
+
+ 블록 박스와 인라인 박스의 디폴트 출력 모양
+블록 박스 새 라인에서 시작. 왼쪽에서 오른쪽 ㄱ끝까지 통쨰 점유
+인라인 박스는 블록 안에 배치 옆에 다른 태그 배치 가능
+예 DIV 내 span과 sapn 입니다
+
+ box-shadow 프러퍼티
+박스 전체에 그림자 효과
+spread-radius 그림자 크기
+} -->

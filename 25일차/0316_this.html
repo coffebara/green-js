@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this 활용</title>
+    <script>
+        // 여기서 obj(객체)는 클릭하면서 입력된 버튼 또는 아래 문장 객체를 의미
+        function change(obj, size, color){
+            // 함수를 실행해 객체의 색상과 폰트 사이즈 변경
+            obj.style.color = color;
+            obj.style.fontSize = size;
+        }
+    </script>
+</head>
+<body>
+    <h3>this의 활용</h3>
+    <!-- <button onclick="change(this, '30px', 'red')">버튼</button>
+    <button onclick="change(this, '30px', 'blue')">버튼</button>
+    <div onclick="change(this, '25px', 'orange')">여기 클릭하면 크기와 색 변경</div> -->
+    <button>버튼</button>
+    <button>버튼</button>
+    <div>여기 클릭하면 크기와 색 변경</div>
+</body>
+<script>
+    const btn = document.getElementsByTagName("button");
+    // const div = document.getElementsByTagName("div")[0];
+
+
+    btn.addEventListener("click", function(){
+        (this == btn[0]) ? change(this, "30px", "red") : change(this, "40px", "blue");
+    })
+
+    // btn.onclick = function() {
+    //     (this == btn[0]) ? change(this, "30px", "red") : change(this, "40px", "blue");
+    // }
+
+    div.addEventListener("click", function(){
+        this.style.fontSize="25px";
+        this.style.color="orange";
+    })
+
+    // const btn1 = document.getElementsByTagName("button")[0];
+    // const btn2 = document.getElementsByTagName("button")[1];
+    // const div = document.getElementsByTagName("div")[0];
+
+    // btn1.addEventListener("click", function(){
+    //     change(this, '30px', 'red')})
+        
+    // btn2.addEventListener("click", function(){
+    //     this.style.fontSize="30px";
+    //     this.style.color="blue";
+    // })
+    // div.addEventListener("click", function(){
+    //     this.style.fontSize="25px";
+    //     this.style.color="orange";
+    // })
+
+
+</script>
+</html>
+<!-- 
+    script 코드를 통해 함수 chang를 생성해둔다.
+function change(obj, size, color) 여기서 obj는 입력되어 있는 버튼과 문장을 뜻한다.
+즉 change로 뭐를 바꿀 것인가?? 각각 버튼과 문장의 속성을 바꿀 것이기에 this로 표현
+ -->
+
+ <!-- 
+    this 키워드의 동작 방식은 함수를 호출한 방식과 함수 정의 방식에 따라서 달라집니다.
+    일반 함수, 콜백 함수, 화살표 함수에서 this 키워드의 동작 방식이 다릅니다.
+    
+    일반 함수에서 this키워드 : 일반 함수에서 this 키워드는 함수를 호출한 객체를 가리킵니다.
+
+    콜백 함수에서 this 키워드 : 콜백 함수도 일반 함수와 동일하게 this 키워드를 사용합니다.
+        콜백 함수가 일반 함수로 정의되어 있으면, this 키워드는 함수를 호출한 객체를 가리키게 됩니다.
+
+    콜백 함수가 화살표 함수로 정의되어 있으면,
+        this 키워드는 상위 스코프의 this 값을 가리키게 됩니다.
+
+    화살표 함수에서 this 키워드 : 화살표 함수에서 this 키워드는 함수를 정의할 때
+        상위 스코프의 this 값을 가져와서 사용합니다
+        따라서, 화살표 함수 내부에서 this 키워드를 사용하면 상위 스코프의 this 값을 참조합니다.
+  -->

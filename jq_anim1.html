@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.3.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $('#s').click(function(){
+                $('img').animate({
+                    width: '100'
+                })
+            }),
+            $('#m').click(function(){
+                $('img').animate({
+                    width: '200'
+                })
+            }),
+            $('#l').click(function(){
+                $('img').animate({
+                    width: '300'
+                })
+            })
+        })
+    </script>
+    <style>
+        div{
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h3>ANIMATION 실습1</h3><hr>
+    <div>
+        버튼을 누르면 그림의 크기가 바뀝니다. <br>
+        <button id="s">가로 100필셀</button>
+        <button id="m">가로 200픽셀</button>
+        <button id="l">가로 300픽셀</button>
+        <br>
+        <img src="C:\media\puppy.png">
+    </div>
+</body>
+</html>

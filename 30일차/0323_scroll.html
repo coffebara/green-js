@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 페이지의 자동 스크롤</title>
+    <script>
+        // 1초당 autoscroll 함수 실행
+        function startScroll(interval){
+            setInterval("autoScroll()", interval);
+        }
+        function autoScroll(){
+            // 한 번에 스크롤을 10 픽셀 씩 위로 이동
+            window.scrollBy(0,10);  // 옆으로 0, 10 픽셀씩 위로 이동 -> 스크롤 다운 하는 것
+            // window.scrollBy(10, -10); 왼쪽으로 10픽셀 아래로 10픽셀 스크롤
+        }
+        // window.moveBy(5,10); 혹은 moveBy(5,10); 위로 5픽셀 오른쪽으로 10 픽셀 이동
+        // 스크롤 다운(scroll down)은 스크롤 바를 내리는 작동이며, 이에 따라 웹 페이지는 위로 이동한다.
+    </script>
+</head>
+<body>
+    <body onload="startScroll(1000)">
+        <h3>자동 스크롤 페이지</h3><hr>
+        <h3>꿈길(이동순)</h3>
+        꿈길에<br>
+        발자취가 있다면<br>
+        남의 집 창밖<br>
+        그 돌게단 깊이 이미 오래 전에<br>
+        모래가 되고 말았을 거에요<br><br>
+        하지만<br>
+        그 꿈길에서 자취 없다 하니<br>
+        나는 그것이 정말 서러워요<br>
+        이 밤도<br>
+        나는 님의 집 창밖<br>
+        그 돌계단 위에 홀로 서서<br>
+        혹시라도 님의 목소리가 들려올까<br>
+        고개 숙이고 엿들어요 <br>
+        <h3>꿈길(이동순)</h3>
+        꿈길에<br>
+        발자취가 있다면<br>
+        남의 집 창밖<br>
+        그 돌게단 깊이 이미 오래 전에<br>
+        모래가 되고 말았을 거에요<br><br>
+        하지만<br>
+        그 꿈길에서 자취 없다 하니<br>
+        나는 그것이 정말 서러워요<br>
+        이 밤도<br>
+        나는 님의 집 창밖<br>
+        그 돌계단 위에 홀로 서서<br>
+        혹시라도 님의 목소리가 들려올까<br>
+        고개 숙이고 엿들어요 <br>
+    </body>
+</body>
+</html>

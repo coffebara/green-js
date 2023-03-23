@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document.getElementsByTagName</title>
+    <script>
+        function change() {
+            // getElementByTagName - getElementById와 같은 역할
+            // ID가 태그의 id를 가리켰다면 TagName은 태그명을 의미
+            // 태그 객체를 생성해 컨트롤
+            var spanArray = document.getElementsByTagName("span");
+            // spanArray 객체에 수(span태그의 수, 여기선 4)에 맞춰 for문이 수행되며
+            // 수행할 때 마다 span.style.color = "#0101ff" + i*30;
+            // 연산에 의해, 글자색이 조금씩 변화하게 됨
+            for(var i = 0; i < spanArray.length; i++){
+                var span = spanArray[i];
+                span.style.color = "#0101ff" + i*30;
+                span.style.fontSize = i*20 +  "px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>내가 좋아하는 과일
+        <button onclick="change()">누르세요</button>
+    </h3><hr>
+    저는 빨간 <span>사과</span>를 좋아해서
+    아침마다 한 개씩 먹고있어요. 운동할 때는 중간 중간에 
+    <span>바나나</span>를 먹지요. 탄수화물 섭취가 빨라 힘이 납니다.
+    또는 달콤한 향기를 품은 <span>체리</span>와 여름 냄새가 물씬 나타내는
+    <span>자두</span>를 좋아합니다.
+</body>
+</html>
+<!-- 
+    태그 이름으로 찾기
+document.getElementsByTagName("tag 명");
+태그 이름이 같은 모든 DOM 객체들을 찾아 컬렉션 리턴
+ex) <div>태그의 모든 객체 DOM 객체 찾기
+
+ -->ㄴ

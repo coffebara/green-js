@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                $('div').toggleClass('page')
+            })
+        })
+    </script>
+    <style>
+        div>*{
+            border: 1px solid blue;
+            color: red;
+        }
+        .page>*{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>HTML5</h1>
+        <h2>CSS#</h2>
+        <h3>자바스크립트</h3>
+        <h4>제이쿼리</h4>
+    </div>
+    <button type="button">css 적용/해제</button>
+</body>
+</html>
+<!-- 표현식(expression) 이란?
+    표현식이란 값으로 평가될 수 있는 문을 말한다.
+    예를 들어 1+2=3 이라는 수식어에서 1+2와 3은 동치이므로 1+2는 3으로 표현될 수 있다는 말과 비슷하다.
+    b = [1,2,3] // [1,2,3]
+    b[1] //2
+
+<값으로 평가될 수 없는 문들>
+var a;
+var a= 10;
+
+그래서 왜 undefined가 나오는건가
+표현식은 값으로 평가될 수 있는 문이라고 하였다.
+크롬의 콘솔창에서는 표현식의 평가된 값을 반환하기 떄문에 표현식이 아닌 문을 실행하였을 떄
+undefined를 반환한 것이다.
+ -->

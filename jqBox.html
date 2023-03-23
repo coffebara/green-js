@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 10px; height: 100px;
+            background-color: red;  
+            left: 0; top: 0;
+            opacity: 0.0;
+        }   
+    </style>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $('.box').css({
+            //     width: '10',
+            //     height: '100',
+            //     backgroundColor: 'red',
+            //     position: 'ablsolute',
+            //     left: '0', 
+            //     top: '0',
+            //     opacity: '0.0'
+            // })
+            $('.box').each(function(index){
+                $(this)
+                .delay(index*300)
+                .animate({
+                    width:'100%',
+                    opacity:'1.0'
+                }, 1000);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+
+</html>

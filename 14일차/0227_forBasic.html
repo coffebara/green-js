@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sum = 0;
+        for(var i = 0; i<=10; i++){
+            sum = sum + i;
+            document.write(i + "\n");
+        }
+        document.write(`<br><br>총 합은 : ${sum}`);
+    </script>
+    <br><br><br><br><br><br><br><br><br><br>
+    <script>
+        const students = ["Park", "Kim", "Lee", "Kang"]
+        for(var i = 0; i<students.length; i++){
+            document.writeln(`${students[i]}<br>`);
+        }
+    </script>
+</body>
+</html>
+
+<!-- 배열의 인덱스를 사용해서 배열 요소 값에 접근할 수 있다.
+배열 인뎃는 0 부터 시작!
+언제까지 반복할까? 배열 요소의 개수만큼 배열 개수는 length 속성에 들어있다.  -->
