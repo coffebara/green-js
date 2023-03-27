@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>베르세르크</title>
+        <link rel="stylesheet" href="css/nav.css" />
+        <style>
+            main {
+                height: 130vh;
+                width: 100%;
+            }
+            ul,
+            li,
+            h1,
+            h2,
+            div,
+            p {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            h1,
+            ul {
+                font-family: "Cormorant Garamond", serif;
+            }
+            #con1 {
+                width: 100%;
+                height: 100%;
+                /* background 속성이 많아서 분리 */
+                /* 배경 */
+                background-image: url("https://github.com/copybarabrabam/WebFullstack/blob/main/weeksproject/img/bg_pc.jpg?raw=true");
+                background-position: center;
+                background-size: cover;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+            /* 메인  */
+            .story_contents {
+                width: 70%;
+                margin: 10vh auto 4vh;
+            }
+            .story {
+                color: #b81b22;
+                text-align: center;
+                letter-spacing: 0.185em;
+                font-weight: bold;
+                margin-top: 3vmin;
+            }
+            .story p {
+                color: aliceblue;
+                font-size: small;
+                margin-top: 1vmin;
+            }
+            .story_list {
+                display: flex;
+                flex-wrap: wrap;
+                color: #bb8d1d;
+                /* margin-left: 30px; */
+            }
+            .story_list_item {
+                margin: 0px 20px 15px 0;
+                cursor: pointer;
+            }
+            .story_title {
+                color: white;
+                font-family: "Cormorant Garamond", serif;
+                margin-top: 20px;
+            }
+            .story_title2 {
+                display: flex;
+                align-items: baseline;
+                margin-bottom: 50px;
+            }
+            .story_no {
+                color: #b81b22;
+                font-family: "Cormorant Garamond", serif;
+                font-size: 3em;
+                margin-right: 3vmin;
+            }
+            .title {
+                font-size: 3.5vmin;
+            }
+            /* 이미지 */
+            .story_img {
+                margin: auto;
+                margin-bottom: 80px;
+            }
+            .story_img_main {
+                display: block;
+                overflow: hidden;
+                position: relative;
+                width: 970px;
+                height: 350px;
+                /* height: 300px; */
+                margin: 10px auto 0;
+            }
+            .swiper-wrapper,
+            .swiper-pagination {
+                display: flex;
+            }
+            .swiper-pagination .focus_img {
+                opacity: 1;
+            }
+            .slide {
+                opacity: 0.2;
+            }
+            .slides {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 2400px;
+            }
+            .story_img_sub {
+                width: 970px;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+            .swiper-wrapper img {
+                transition: opacity 1s ease-in-out;
+            }
+
+            .swiper-wrapper img.hidden {
+                opacity: 0;
+            }
+
+            /* 줄거리 */
+            dl {
+                display: flex;
+                font-size: 2vmin;
+            }
+            dt {
+                color: #b81b22;
+            }
+            dd {
+                padding: 0 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container_nav">
+            <nav class="header_menu">
+                <ul class="nav_menu">
+                    <li><a class="nav_item" id="s" href="">STORY</a></li>
+                    <li><a class="nav_item" id="c" href="">CHARACTER</a></li>
+                    <li><a class="nav_item" id="m" href="">MEDIA MIX</a></li>
+                    <li><a class="nav_item" id="f" href="">FORUM</a></li>
+                    <li><a class="nav_item" id="l" href="">LOGIN</a></li>
+                </ul>
+            </nav>
+            <!-- nav 끝 -->
+            <!-- story ㅅㅣ작 -->
+            <main>
+                <div id="con1"></div>
+                <h1 class="story">
+                    STORY
+                    <p>스 토 리</p>
+                </h1>
+                <div class="story_contents">
+                    <ul class="story_list">
+                        <li class="story_list_item">#INTRODUCTION</li>
+                    </ul>
+                    <ul class="story_list">
+                        <li class="story_list_item">#01</li>
+                        <li class="story_list_item">#02</li>
+                        <li class="story_list_item">#03</li>
+                        <li class="story_list_item">#04</li>
+                        <li class="story_list_item">#05</li>
+                        <li class="story_list_item">#06</li>
+                        <li class="story_list_item">#07</li>
+                        <li class="story_list_item">#08</li>
+                        <li class="story_list_item">#09</li>
+                        <li class="story_list_item">#010</li>
+                        <li class="story_list_item">#011</li>
+                        <li class="story_list_item">#012</li>
+                    </ul>
+                    <div class="story_wrapper">
+                        <div class="story_title">
+                            <div class="story_title2">
+                                <p class="story_no">01</p>
+                                <h2 class="title">황금시대</h2>
+                            </div>
+                            <div class="story_img">
+                                <div class="story_img_main">
+                                    <ul class="swiper-wrapper">
+                                        <li><img class="0" width="970" src="https://berserk-me.com/story/SYS/CONTENTS/story_2373_photo_1664542116823625145" width="100%" height="100%" /></li>
+                                </div>
+                                <div class="story_img_sub">
+                                    <ul class="swiper-pagination">
+                                        <li><img class="slide 0 focus_img" src="https://berserk-me.com/story/SYS/CONTENTS/story_2373_photo_1664542116823625145" width="100%" height="100%" /></li>
+                                        <li><img class="slide 1" src="https://berserk-me.com/story/SYS/CONTENTS/story_2373_photo_166454211734020840" width="100%" height="100%" /></li>
+                                        <li><img class="slide 2" src="https://berserk-me.com/story/SYS/CONTENTS/story_2373_photo_1664542117728179247" width="100%" height="100%" /></li>
+                                        <li><img class="slide 3" src="https://berserk-me.com/story/SYS/CONTENTS/story_2373_photo_1664542118130953641" width="100%" height="100%" /></li>
+                                        <li><img class="slide 4" src="https://berserk-me.com/story/SYS/CONTENTS/story_2373_photo_1664542118505132583" width="100%" height="100%" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <dl>
+                                <dt>STORY</dt>
+                                <dd>
+                                    미들랜드 왕국과 튜더 제국간의 100년 전쟁의 소용돌이 속, 용병으로써 검을 휘두르고있던 가츠는, 어떤 전투 후, 용병단인 '매의 단' 과 얽히게 되었다. 여러 단원을
+                                    쓰러트리고 천인장 캐스커까지 대검으로 압도한 가츠, 그 때 매의 단의 단장 그리피스가 말을 거는데...
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer></footer>
+        </div>
+    </body>
+    <script src="js/nav.js"></script>
+    <script>
+        //pagination
+        var img = document.querySelector(".swiper-wrapper img");
+        var slide = document.querySelectorAll(".slide");
+
+        window.addEventListener("load", function () {
+            setInterval("focusChange()", 5000);
+        });
+
+        function focusChange() {
+            for (var i = 0; i < slide.length; i++) {
+                if (slide[i].classList.contains("focus_img")) {
+                    slide[i].classList.remove("focus_img");
+                    slide[(i + 1) % 5].classList.add("focus_img");
+                    img.setAttribute("src", slide[(i + 1) % 5].getAttribute("src"))
+                    break;
+                }
+            }
+        }
+    </script>
+</html>

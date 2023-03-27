@@ -1,0 +1,68 @@
+#headerBackgroundImg {
+    width: 100%;
+    height: 98vh;
+    background-image: url("https://github.com/copybarabrabam/WebFullstack/blob/main/weeksproject/img/1147926.jpg?raw=true");
+    background-size: cover;
+    background-position: center;
+}
+#logo {
+    /* 화면 크기에 따른 크기 변화로 중앙 정렬이 무너져 vh 대신 px로 사용 */
+    height: 150px;
+    width: 350px;
+    background-image: url("https://github.com/copybarabrabam/WebFullstack/blob/main/weeksproject/img/logo_berserk.png?raw=true");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+/* 헤더 시작 */
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* nav 메뉴 시작 */
+/* nav 위치 고정 */
+.header_menu {
+    background-color: rgb(163, 0, 1);
+    height: 10vh;
+    width: 100%;
+    z-index: 999;
+    margin-top: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+/* nav 안 메뉴 요소 */
+.nav_menu {
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    color: aliceblue;
+    margin: 0 auto 0;
+    height: 100%;
+}
+.nav_menu li {
+    margin: 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.nav_menu a {
+    font-family: "Cormorant Garamond", serif;
+    color: aliceblue;
+    font-size: 2.4vmin;
+    line-height: 1;
+    text-decoration: none;
+    padding: 3.6vmin 0 3.6vmin 4vmin;
+    background: url("https://www.dai-berserk-ten.com/wp_berserk/wp-content/themes/berserk/img/menu_icon_off.png") no-repeat top 2.6vmin left 0;
+    background-size: 2.3vmin auto;
+    transition: all 0.4s ease-in-out;
+}
+.nav_menu a:hover {
+    color: #500000;
+    transform: scale(1.1);
+}
