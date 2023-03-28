@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes</title>
+    <link rel="stylesheet" href="css/quotes.css">
+</head>
+<body>
+    <div id="result">
+        <div class="quote"></div>
+        <div class="author"></div>
+    </div>
+    <script src="js/solution-2.js"></script>
+</body>
+</html>
+fetch API란
+ 서버에 자료를 요청하거나 자료를 받아올 때 사용하는 API란
+ XMLHttpRequest를 대신한다.
+ fetch는 프로미스를 반환한다!
+fetch(위치, 옵션)
+ 위치: 자료가 있는 URL이나 파일 이름
+ 옵션: GET이나 POST 같은 요청 방식 지정 (따로 지정하지 않으면 GET 메서드 사용)
+ 사용예> fetch(student-2.json)
+ then()을 사용해 결과 표시 fetch(student-2.json).then(console.log)
+ XMLHttpRequest 객체 대신 fetch API를 사용해 보자
+1. XMLHttpRequest (XHR):
+    가장 기본적인 방법으로, 클라이언트가 서버에 HTTP 요청을 보내고, 서버가 응답하는 방식을
+    사용합니다. 
+    비동기적 요청을 처리하기 위한 onreadystatechange 이벤트 핸들러나 readystatechange
+    이벤트를 이용합니다. 
+    XHR은 웹 브라우저에서 널리 지원되며, 기존 브라우저에서도 작동합니다
+2. fetch 
+    ES6의 기능으로 Promise 기반의 비동기적 HTTP 요청 방식입니다. XHR보다 간단하게 요청을 보낼 수 있습니다.
+    XHR보다 간단하게 요청을 보낼 수 있습니다. 
+    Response 객체를 반환하는 Promise를 반환합니다. 
+    fetch API는 CORS 요청 및 리다이렉션을 자동으로 처리하는 등의 기능을 제공합니다.
+    CORS란
+    자원에서 다른 출처에 있는 자원에 접근하도록 하는 개념입니다. 지역하면, 교차되는 출처
+    자원들의 공유입니다. 
+    교차 출처 리소스 공유(Cross-Origin Resource Sharing, CORS)
+    추가 HTTP 헤더를 사용하여, 한 출처에서 실행 중인 웹 어플리케이션이 다른 출처의 선택한
+    자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제입니다. 
+    출처란?
+     https://github.io:443/tech/svelte?page=1#Origin
+     프로토콜 호스트   포트 패스   쿼리스트링 프래그먼트
+     위의 구성요소 중에서 Protocol + Host + Port 3가지가 같으면 동일 출처(Origin)라고 합니다. 
+     포트는 생략이 가능합니다
+
+     예> http://example.com/app1/index.html
+         http://example.com/app2/index.html
+         Protocol, Host, Port(생략)이 같으며, Path부터 다르므로 동일 출처입니다
+
+         http:example.com
+         http:example.com:8000      80,8080으로 포트가 다릅니다 동일출처가 아닙니다
+    다른 출처 요청일 경우, CORS 정책에 준수하여 요청해야만 정상적으로 응답을 받습니다.
+    다른 출처 요청의 위험성
+    <img>, <scripte>, <frame>, <video>, <audio> 등이 웹에 등장하면서, 페이지 로딩 이후에
+        브라우저에서 이러한 하위 자원들을 가져올 수 있게 되었습니다. 그로므로 동일 출처, 다른 출처모두 호출이 가능하게 되었습니다.
