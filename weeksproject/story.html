@@ -6,12 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>베르세르크</title>
         <link rel="stylesheet" href="css/nav.css" />
+        <link rel="stylesheet" href="css/login_modal.css">
+        <link rel="icon" href="https://www.dai-berserk-ten.com/wp_berserk/wp-content/themes/berserk/img/favicon.ico">
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
         <style>
             main {
                 height: 130vh;
                 width: 100%;
             }
-            ul,s
+            ul,
             li,
             h1,
             h2,
@@ -207,6 +210,45 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 로그인 모달 -->
+                <div class="lContainer">
+                    <div class="lPopup-wrap" id="lPopup">
+                        <div class="lPopup">
+                            <div class="lPopup-head">
+                                <span class="lHead-title">LOG IN</span>
+                            </div>
+                            <div class="lPopup-body">
+                                <div class="lBody-content">
+                                    <div class="lBody-titleBox">
+                                        <div class="lBody_top">
+                                            <div class="lText_control">
+                                                <p>Username</p>
+                                            </div>
+                                            <div class="lForm_group">
+                                                <input class="lForm_control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="lBody_bottom">
+                                            <div class="lText_control">
+                                                <p>Password</p>
+                                            </div>
+                                            <div class="lForm_group">
+                                                <form><input class="lForm_control" type="password"></input></form>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lPopup-foot">
+                                <div class="lBtn_signUp">sign up</div>
+                                <button class="lBtn_control lBtn1" id="lClose">LOGIN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 로그인 끝 -->
             </main>
             <footer></footer>
         </div>
@@ -231,5 +273,32 @@
                 }
             }
         }
+    </script>
+    <script>
+        // 로그인 모달
+        // const body = document.querySelector("body");
+        const lPopup = document.getElementById("lPopup");
+        $(function () {
+                $("#lBtn_signUp").click(function () {
+                    location.href='agree.html'
+                });
+                $("#l").click(function () {
+                    $("#lPopup").css("display", "flex").hide().fadeIn();
+                    // if(lPopup.style.display === 'flex'){
+                    //     body.classList.toggle('scrollLock')
+                    // }
+                });
+                $("#lClose").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                });
+                function modalClose() {
+                    $("#lPopup").fadeOut(); //페이드아웃 효과
+                    // body.classList.toggle('scrollLock')
+                }
+            });      
+            const lBtnSignUp = document.querySelector(".lBtn_signUp");
+            lBtnSignUp.addEventListener("click", function() {
+                location.href = 'agree.html';
+            })
     </script>
 </html>

@@ -6,8 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>베르세르크</title>
         <link rel="stylesheet" href="css/nav.css" />
-        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
         <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="css/login_modal.css">
+        <link rel="icon" href="https://www.dai-berserk-ten.com/wp_berserk/wp-content/themes/berserk/img/favicon.ico">
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
         <style>
             * {
                 padding: 0;
@@ -78,10 +80,19 @@
                 box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
                 color: #fff;
             }
+            /* 글쓰기 버튼 */
             .write{
                 position: absolute;
                 right: 0;
-                top: -30px;
+                top: -40px;
+                width: 50px;
+                height: 30px;
+                background-color: #b81b23e2;
+                border: 0;
+                border-radius: 3px;
+            }
+            .write:hover{
+                cursor: pointer;
             }
             /* 게시물  */
             .rptlrmf {
@@ -171,26 +182,9 @@
                 background-color: #bb8d1d;
             }
         </style>
-        <script>
-            $(function () {
-                $("#confirm").click(function () {
-                    modalClose(); //모달 닫기 함수 호출
-                    //컨펌 이벤트 처리
-                });
-                $(".write").click(function () {
-                    $("#popup").css("display", "flex").hide().fadeIn();
-                    });
-                $("#close").click(function () {
-                    modalClose(); //모달 닫기 함수 호출
-                });
-                function modalClose() {
-                    $("#popup").fadeOut(); //페이드아웃 효과
-                    $("#left .cloned-img").remove();
-                }
-            });
-        </script>
     </head>
     <body>
+        <!-- nav 영역 -->
         <div class="container_nav">
             <nav class="header_menu">
                 <ul class="nav_menu">
@@ -202,7 +196,7 @@
                     <li class="nav_item" id="l">LOGIN</li>
                 </ul>
             </nav>
-            <!-- nav 끝 -->
+            <!-- 게시판 영역 -->
             <main>
                 <div id="con1"></div>
                 <h1 class="forum_title">
@@ -210,7 +204,7 @@
                     <p>게 시 판</p>
                 </h1>
                 <div class="forum_wrapper">
-                    <input type="button" class="write" value="글쓰기">
+                    <input type="button" class="write" value="Write">
                     <div class="main_contents">
                         <div class="rptlrmf_list l0">No</div>
                         <div class="rptlrmf_list l1">Title</div>
@@ -221,7 +215,7 @@
                     <div class="panel">
                         <div class="rptlrmf" id="6">
                             <div class="rptlrmf_list rptlrmf_num">6</div>
-                            <div class="rptlrmf_list rptlrmf_title">오점추</div>
+                            <div class="rptlrmf_list rptlrmf_title">오늘 점심 추천받습니다~</div>
                             <div class="rptlrmf_list rptlrmf_user">가츠통</div>
                             <div class="rptlrmf_list rptlrmf_view">6</div>
                             <div class="rptlrmf_list rptlrmf_skfWk">1분 전</div>
@@ -242,7 +236,7 @@
                         </div>
                         <div class="rptlrmf" id="3">
                             <div class="rptlrmf_list rptlrmf_num">3</div>
-                            <div class="rptlrmf_list rptlrmf_title">캐스커 좀 오반데</div>
+                            <div class="rptlrmf_list rptlrmf_title">캐스커는 진짜 언제 돌아올까요?</div>
                             <div class="rptlrmf_list rptlrmf_user">닉네임은</div>
                             <div class="rptlrmf_list rptlrmf_view">119</div>
                             <div class="rptlrmf_list rptlrmf_skfWk">3시간 전</div>
@@ -276,7 +270,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- 모달 영역 -->
+                <!-- 게시판 모달 영역 -->
                 <div class="container">
                     <div class="popup-wrap" id="popup">
                         <div class="popup">
@@ -356,7 +350,7 @@
                                 </div>
                             </div>
                             <div class="lPopup-foot">
-                                <div class="lBtn_signUp">sign up</div>
+                                <div class="lBtn_signUp" >sign up</div>
                                 <button class="lBtn_control lBtn1" id="lClose">LOGIN</button>
                             </div>
                         </div>
@@ -368,4 +362,57 @@
         </div>
     </body>
     <script src="js/nav.js"></script>
+    <script>
+        // 게시판 모달
+        const body = document.querySelector("body");
+        const popup = document.getElementById("popup");
+        $(function () {
+                $("#confirm").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                    //컨펌 이벤트 처리
+                });
+                $(".write").click(function () {
+                    $("#popup").css("display", "flex").hide().fadeIn();
+                    // if(popup.style.display === 'flex'){
+                    //     body.classList.toggle('scrollLock');
+                    // }
+                });
+                $("#close").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                });
+                function modalClose() {
+                    $("#popup").fadeOut(); //페이드아웃 효과
+                    $("#left .cloned-img").remove();
+                    // body.classList.toggle('scrollLock')
+                }
+            });        
+    </script>
+    <script>
+        // 로그인 모달
+        // const body = document.querySelector("body");
+        const lPopup = document.getElementById("lPopup");
+        $(function () {
+                $("#confirm").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                    //컨펌 이벤트 처리
+                });
+                $("#l").click(function () {
+                    $("#lPopup").css("display", "flex").hide().fadeIn();
+                    // if(lPopup.style.display === 'flex'){
+                    //     body.classList.toggle('scrollLock')
+                    // }
+                });
+                $("#lClose").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                });
+                function modalClose() {
+                    $("#lPopup").fadeOut(); //페이드아웃 효과
+                    // body.classList.toggle('scrollLock')
+                }
+            });      
+            const lBtnSignUp = document.querySelector(".lBtn_signUp");
+            lBtnSignUp.addEventListener("click", function() {
+                location.href = 'agree.html';
+            })
+    </script>
 </html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>베르세르크</title>
+        <link rel="stylesheet" href="css/nav.css" />
+        <link rel="stylesheet" href="css/login_modal.css">
+        <link rel="icon" href="https://www.dai-berserk-ten.com/wp_berserk/wp-content/themes/berserk/img/favicon.ico">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }   
+            body{   
+                line-height: 1.5;
+            }
+            main {
+                height: 130vh;
+                width: 100%;
+            }
+            ul,
+            li,
+            h1,
+            h2,
+            h3,
+            h4,
+            p,
+            div,input {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-family: "Cormorant Garamond", serif;
+            }
+            #con1 {
+                width: 100%;
+                height: 100%;
+                /* background 속성이 많아서 분리 */
+                /* 배경 */
+                background-image: url("https://github.com/copybarabrabam/WebFullstack/blob/main/weeksproject/img/bg_pc.jpg?raw=true");
+                background-position: center;
+                background-size: cover;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+            /* 메인시작 */
+            /* 타이틀 */
+            .forum_title {
+                color: #b81b22;
+                text-align: center;
+                letter-spacing: 0.185em;
+                font-weight: bold;
+                margin-top: 3vmin;
+            }
+            .forum_title p {
+                color: aliceblue;
+                font-size: small;
+                margin-top: 1vmin;
+            }
+            /* 로그인 틀 */
+            .join_wrapper {
+                /* border: #fff 1px solid; */
+                background-color: rgba(22,22,22,0.8);
+                box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+                position: relative;
+                width: 30%;
+                min-width: 500px; 
+                height: 550px;
+                margin: 5vh auto 4vh;
+                border-radius: 3px;
+            }
+            .join_contents{
+                height: 100%;
+                width: 100%;
+                padding: 30px 10px 0 10px;
+                /* border: #b81b22 1px solid; */
+            }
+            .join_group{
+                /* border: yellow 1px dotted; */
+                width: 100%;
+                height: 16%;
+                padding: 0px 20px 0px 20px;
+                color: #fff;
+            }
+            .join_title {
+                font-size: 13px;
+                margin-bottom: 5px;
+            }
+            .form_control {
+                width: 95%;
+                min-width: 80px;
+                margin-right: 10px;
+                height: 20px;
+                padding: 10px;
+                background-color: #121212;
+                color: #fff;
+                border: 1px solid #ced4da;
+                box-sizing:content-box;
+                
+            }
+            /* 이메일 */
+            .e_mail{
+                width: 70%;
+            }
+            #email_select{
+                margin-left: 10px;
+                width: 30%;
+                max-width: 110px;
+            }
+            #email_row{
+                display: flex;  
+            }
+            .form_group{
+                width: 100%;
+            }
+            .form_gruop_num{
+                display: flex;
+                align-items: center;
+            }
+            .form_num{
+                width: 10%;
+            }
+            .form_group_num{
+                display: flex;
+                justify-content: space-between;
+            }
+            #num_select{
+                width: 0%;
+                /* max-width: 5px; */
+            }
+            /* 버튼 */
+            .btn_num, .btn_join {
+                /* justify-self: right; */
+                width: 60px;
+                height: 40px;
+                margin-left: 5px;
+                padding: 5px;
+            }
+            .btn_join{
+                margin: 10px 0 0 0 ;
+                width: 100%;
+            }
+            button:hover{
+                cursor: pointer;
+            }
+
+        </style>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <!-- nav 영역 -->
+        <div class="container_nav">
+            <nav class="header_menu">
+                <ul class="nav_menu">
+                    <span class="nav_item" id="logo"><img id="logoImg" src="https://www.speedrun.com/gameasset/268e2v96/cover?v=4d59815"></span>
+                    <li class="nav_item" id="s">STORY</li>
+                    <li class="nav_item" id="c">CHARACTER</li>
+                    <li class="nav_item" id="m">MEDIA MIX</li>
+                    <li class="nav_item" id="f">FORUM</li>
+                    <li class="nav_item" id="l">LOGIN</li>
+                </ul>
+            </nav>
+            <!-- 게시판 영역 -->
+            <main>
+                <div id="con1"></div>
+                <h1 class="forum_title">
+                    Singup
+                    <p>회원가입</p>
+                </h1>
+                <form class="join_wrapper">
+                    <div class="join_contents">
+                        <div class="join_group">
+                            <div class="join_title"><h4>아이디</h4></div>
+                            <div class="form_group"><input class="form_control" type="text"></div>
+                        </div>
+                        <div class="join_group">
+                            <div class="join_title"><h4>비밀번호</h4></div>
+                            <div class="form_group"><input class="form_control"  type="password"></div>
+                        </div>
+                        <div class="join_group">
+                            <div class="join_title"><h4>비밀번호 확인</h4></div>
+                            <div class="form_group"><input class="form_control"  type="password"></div>
+                        </div>
+                        <div class="join_group">
+                            <div class="join_title"><h4>이메일</h4></div>
+                            <div class="form_group" id="email_row">
+                                <input class="form_control e_mail" type="email">
+                                <select class="form_control" name="email" id="email_select">
+                                    <option value="">선택</option>
+                                    <option value="">naver.com</option>
+                                    <option value="">daum.net</option>
+                                    <option value="">hanmail.net</option>
+                                    <option value="">nate.com</option>
+                                    <option value="">google.com</option>
+                                    <option value="">hotmail.com</option>
+                                    <option value="">yahoo.co.jp</option>
+                                </select>
+                        </div>
+                        </div>
+                        <div class="join_group">
+                            <div class="join_title"><h4>휴대전화</h4></div>
+                            <div class="form_group form_gruop_num">
+                                <select class="form_control form_num" id="num_select" type="text">
+                                    <option value="">선택</option>
+                                    <option value="">010</option>
+                                    <option value="">011</option>
+                                    <option value="">016</option>
+                                    <option value="">017</option>
+                                    <option value="">018</option>
+                                </select>-&nbsp;
+                                <input class="form_control form_num" type="text">-&nbsp;
+                                <input class="form_control form_num" type="text">
+                                <div class="right">
+                                    <button class="btn_num">확인</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="join_group">
+                            <button class="btn_join">가입하기</button>
+                        </div>
+                        
+
+                    </div>
+                </form>
+            </main>
+            <footer></footer>
+        </div>
+    </body>
+    <script src="js/nav.js"></script>
+</html>

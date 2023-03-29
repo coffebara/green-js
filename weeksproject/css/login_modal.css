@@ -1,0 +1,130 @@
+/* 모달 */
+.lContainer {
+    width: 100%;
+}
+/* 어두워지게 */
+.lPopup-wrap {
+    background-color: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    padding: 15px;
+    z-index: 2;
+}
+/* 팝업창 박스 */
+.lPopup {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    background-color: #161616;
+    box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+    color:white;
+    border-radius: 10px;
+}
+/* 팝업 헤드 */
+.lPopup-head {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-bottom: 1px solid #343434;
+}
+.lHead-title {
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -3px;
+    margin-left: 20px;
+}
+/* 팝업 바디 */
+.lPopup-body {
+    width: 100%;
+}
+.lBody-content {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    word-break: break-word;
+    /* overflow-y: auto; */
+    min-height: 220px;
+    max-height: 220px;
+}
+.lBody-titleBox {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.lBody_top, .lBody_bottom{
+    margin: 20px 50px 0 20px;
+}
+.lForm_group{
+    /* width: 75%; */
+    margin-top: 10px;
+}
+.lForm_control{
+    width: 100%;
+    padding: 10px 20px 10px 10px;
+    background-color: #121212;
+    color: #fff;
+    display: block;
+}
+.lText_control{
+    text-align: left;
+    padding-top: 10px;
+}
+.lBody_foot{
+    margin-top: 10px;
+    display: flex;
+    justify-content:flex-end;
+    width: 58%;
+}
+/* 팝업 하단 */
+.lPopup-foot {
+    display: flex;
+    justify-content:space-between;
+    box-sizing: border-box;
+    border-top: 1px solid #343434;
+    width: 100%;
+    height: 70px;
+    padding: 15px 0;
+}
+/* 하단 버튼 */
+.lBtn_signUp{
+    align-self: center;
+    margin-left: 20px;
+    color: #bb8d1d;
+}
+.lBtn_signUp:hover {
+    cursor: pointer;
+}
+.lBtn_control{
+    height: 100%;
+    width: 55px;
+    margin-right: 10px;
+    color: #fff;
+    box-shadow: none;
+    border-radius: 2px;
+}
+.lBtn_control:hover{
+    cursor: pointer;
+}
+.lBtn1{
+    width: 65px;
+    background-color: transparent;
+    border: #343434 1px solid;
+    margin-right: 17px;
+}
+/* 팝업시 스크롤 막기 */
+.scrollLock{
+    overflow: hidden;
+}

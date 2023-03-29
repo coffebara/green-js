@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>베르세르크</title>
+        <link rel="stylesheet" href="css/nav.css" />
+        <link rel="stylesheet" href="css/login_modal.css">
+        <link rel="icon" href="https://www.dai-berserk-ten.com/wp_berserk/wp-content/themes/berserk/img/favicon.ico">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }   
+            body{   
+                line-height: 1.5;
+            }
+            main {
+                height: 130vh;
+                width: 100%;
+            }
+            ul,
+            li,
+            h1,
+            h2,
+            p,
+            div {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-family: "Cormorant Garamond", serif;
+            }
+            #con1 {
+                width: 100%;
+                height: 100%;
+                /* background 속성이 많아서 분리 */
+                /* 배경 */
+                background-image: url("https://github.com/copybarabrabam/WebFullstack/blob/main/weeksproject/img/bg_pc.jpg?raw=true");
+                background-position: center;
+                background-size: cover;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+            /* 메인시작 */
+            /* 타이틀 */
+            .forum_title {
+                color: #b81b22;
+                text-align: center;
+                letter-spacing: 0.185em;
+                font-weight: bold;
+                margin-top: 3vmin;
+            }
+            .forum_title p {
+                color: aliceblue;
+                font-size: small;
+                margin-top: 1vmin;
+            }
+            /* 게시판 틀 */
+            .forum_wrapper {
+                /* border: #fff 1px solid; */
+                background-color: rgba(22,22,22,0.8);
+                box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+                position: relative;
+                width: 70%;
+                height: 500px;
+                margin: 5vh auto 4vh;
+                border-radius: 3px;
+                padding: 30px 10px 0 10px;
+            }
+            .main_contents {
+                width: 100%;
+                height: 40px;
+                background-color: rgba(22,22,22,0.8);
+                color: #bb8d1d;
+                display: flex;
+            }
+            .panel {
+                /* height: 800px; */
+                width: 100%;
+                color: #fff;
+            }
+        </style>
+        <style>
+            /* 약관 */
+            .order_agree{
+                /* border: 2px solid #fff; */
+                padding: 5px 20px;
+                margin-bottom: 40px;
+            }
+            .order_agree_text{
+                font-style: 16px;
+                color: #fff;
+                font-weight: 600;
+            }
+            .oder_agree_detail_text{
+                border: 2px solid #343434;
+                border-top: 1px solid  #999999;
+                padding: 20px;
+                margin-bottom: 10px;
+                color: #fff;
+                overflow-y: auto;
+                height: 60px;
+            }
+            .necessary_agree_box{
+                display: flex;
+                justify-content: start;
+                color: #fff;
+            }
+            .btn_agreeBox{
+                /* width: 100%; */
+                height: 40px;
+                /* width: 100%; */
+                border-top: 1px #343434 solid;
+                margin-top: 20px;
+                padding: 20px 0 20px 20px;
+                display: flex;
+                justify-content: end;
+            }
+            .btn_agree{
+                width: 100px;
+                margin-left: 20px;
+            }
+            .btn_agree:hover{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- nav 영역 -->
+        <div class="container_nav">
+            <nav class="header_menu">
+                <ul class="nav_menu">
+                    <span class="nav_item" id="logo"><img id="logoImg" src="https://www.speedrun.com/gameasset/268e2v96/cover?v=4d59815"></span>
+                    <li class="nav_item" id="s">STORY</li>
+                    <li class="nav_item" id="c">CHARACTER</li>
+                    <li class="nav_item" id="m">MEDIA MIX</li>
+                    <li class="nav_item" id="f">FORUM</li>
+                    <li class="nav_item" id="l">LOGIN</li>
+                </ul>
+            </nav>
+            <!-- 게시판 영역 -->
+            <main>
+                <div id="con1"></div>
+                <h1 class="forum_title">
+                    Singup
+                    <p>이용약관</p>
+                </h1>
+                <form class="forum_wrapper">
+                    <div class="order_agree">
+                        <div>
+                            <h3 class="order_agree_text">비회원 주문에 대한 개인정보 수집 이용 동의</h3>
+                        </div>
+                        <div class ="oder_agree_detail_text">
+                            - 수집항목: 성명, 비밀번호, 이메일, 휴대폰번호, 주소, 전화번호
+                            <br>
+                            - 수집/이용목적: 서비스 제공 및 계약의 이행, 구매 및 대금결제, 물품배송 또는 청구지 발송, 불만처리 등 민원처리, 회원관리 등을 위한 목적
+                            <br>
+                            - 이용기간: 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.
+                            <br>
+                            단, 관계법령의 규정에 의하여 보전할 필요가 있는 경우 일정기간 동안 개인정보를 보관할 수 있습니다.
+                            <br>
+                            그 밖의 사항은 주식회사 it-da 개인정보처리방침을 준수합니다.
+                        </div>
+                        <div class="necessary_agree_box">
+                            <input type="checkbox">
+                            <h3><strong>(필수)</strong>비회원 개인정보 수집 이용에 대한 내용을 확인 하였으며 이에 동의 합니다.</h3>
+                        </div>
+                    </div>
+                    <div class="order_agree" id="oder_agree_box2">
+                        <div>
+                            <h3 class="order_agree_text">이용약관 동의</h3>
+                        </div>
+                        <div class ="oder_agree_detail_text">
+                            제1조(목적)
+                            <br>
+                            표준약관 제10023호
+                            <br><br>
+                            이 약관은 주식회사 it-da 회사(전자상거래 사업자)가 운영하는 주식회사 it-da 인터넷사이트(이하 "it-da"이라 한다)에서 제공하는 전자상거래 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 it-da와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
+                            <br>
+                            ※ 「PC통신등을 이용하는 전자거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다」
+                            <br><br>
+                            제2조(정의)
+                            <br><br>
+                            ① "it-da"이란 주식회사 it-da 회사가 재화 또는 용역을 이용자에게 제공하기 위하여 컴퓨터등 정보통신설비를 이용하여 재화 또는 용역을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 사이버it-da를 운영하는 사업자의 의미로도 사용합니다.
+                            <br>
+                            ② "이용자"란 "it-da"에 접속하여 이 약관에 따라 "it-da"이 제공하는 서비스를 받는 회원 및 비회원을 말합니다.
+                            <br>
+                            ③ ‘회원’이라 함은 "it-da"에 개인정보를 제공하여 회원등록을 한 자로서, "it-da"의 정보를 지속적으로 제공받으며, "it-da"이 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다.
+                            <br>
+                            ④ ‘비회원’이라 함은 회원에 가입하지 않고 "it-da"이 제공하는 서비스를 이용하는 자를 말합니다.
+                            <br><br>
+                            1. 이 약관은 2023년 03월 14일부터 적용됩니다.
+                        </div>
+                        <div class="necessary_agree_box">
+                            <input type="checkbox">
+                            <h3><strong>(필수)</strong>이용약관에 대한 내용을 확인 하였으며 이에 동의 합니다.</h3>
+                        </div>
+                        <div class="btn_agreeBox">
+                            <input type="button" class="btn_agree" value="취소" onclick="location.href='index.html'"></input>
+                            <input type="button" class="btn_agree" value="확인"  onclick="location.href='signup.html'"></input>
+                        </div>
+                    </div>
+                </form>
+            </main>
+            <footer></footer>
+        </div>
+    </body>
+    <script src="js/nav.js"></script>
+    <script></script>
+</html>

@@ -63,20 +63,12 @@
                     case "f":
                         location.href = 'forum.html';
                         break;
-                    case "l":
-                        location.href = '#';
-                        break;
+                    // case "l":
+                    //     location.href = '#';
+                    //     break;
                     case "logo":
                         location.href = 'index.html'
+                        break;
                 }
-
-
-                // if(this.innerHTML == "Home"){
-                //     location.href = 'index.html';
-                // } else if(this.innerHTML == "Portfolio"){
-                //     location.href = 'portfolio.html';
-                // } else if(this.innerHTML == "About"){
-                //     location.href = 'about.html';
-                // }
             });
         });

@@ -14,6 +14,7 @@
                 bottom: 0;
                 display: none;
                 padding: 15px;
+                z-index: 2;
             }
             /* 팝업창 박스 */
             .popup {
@@ -123,3 +124,9 @@
                 background-color: #b81b22;
                 border: 0;
             }
+            .scrollLock{
+                overflow: hidden;
+            }
+            /* body::-webkit-scrollbar{
+                display: none;
+            } */
