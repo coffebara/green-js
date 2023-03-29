@@ -50,6 +50,28 @@
     position: relative;
     display: flex;
     align-items: center;
+    font-family: "Cormorant Garamond", serif;
+    color: aliceblue;
+    font-size: 2.4vmin;
+    line-height: 1;
+    text-decoration: none;
+    padding: 3.6vmin 0 3.6vmin 4vmin;
+    background: url("https://www.dai-berserk-ten.com/wp_berserk/wp-content/themes/berserk/img/menu_icon_off.png") no-repeat top 2.6vmin left 0;
+    background-size: 2.3vmin auto;
+    transition: all 0.4s ease-in-out;
+}
+.nav_menu li:hover {
+    color: #500000;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* 
+.nav_menu li {
+    margin: 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 .nav_menu a {
     font-family: "Cormorant Garamond", serif;
@@ -65,4 +87,4 @@
 .nav_menu a:hover {
     color: #500000;
     transform: scale(1.1);
-}
+} */

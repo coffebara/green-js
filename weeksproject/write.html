@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>베르세르크</title>
+        <link rel="stylesheet" href="css/nav.css" />
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                line-height: 1.5;
+            }   
+            main {
+                height: 130vh;
+                width: 100%;
+            }
+            ul,
+            li,
+            h1,
+            h2,
+            p,
+            div {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-family: "Cormorant Garamond", serif;
+            }
+            #con1 {
+                width: 100%;
+                height: 100%;
+                /* background 속성이 많아서 분리 */
+                /* 배경 */
+                background-image: url("https://github.com/copybarabrabam/WebFullstack/blob/main/weeksproject/img/bg_pc.jpg?raw=true");
+                background-position: center;
+                background-size: cover;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+            /* 메인시작 */
+            /* 타이틀 */
+            .forum_title {
+                color: #b81b22;
+                text-align: center;
+                letter-spacing: 0.185em;
+                font-weight: bold;
+                margin-top: 3vmin;
+            }
+            .forum_title p {
+                color: aliceblue;
+                font-size: small;
+                margin-top: 1vmin;
+            }
+            /* 게시판 틀 */
+            .board_wrapper {
+                position: relative;
+                width: 70%;
+                height: 100%;
+                margin: 10vh auto 4vh;
+                background-color: #bb8d1d;
+            }
+            .main_contents {
+                width: 100%;
+                height: 40px;
+                background-color: rgba(22,22,22,0.8);
+                color: #bb8d1d;
+                display: flex;
+            }
+            .panel {
+                /* height: 800px; */
+                width: 100%;
+                background-color: rgba(22, 22, 22, 0.523);
+                box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+                color: #fff;
+            }
+            .write{
+                position: absolute;
+                right: 0;
+                top: -30px;
+            }
+            /* 게시물  */
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container_nav">
+            <nav class="header_menu">
+                <ul class="nav_menu">
+                    <li class="nav_item" id="s" href="story.html">STORY</li>
+                    <li class="nav_item" id="c" href="">CHARACTER</li>
+                    <li class="nav_item" id="m" href="">MEDIA MIX</li>
+                    <li class="nav_item" id="f" href="forum.html">FORUM</li>
+                    <li class="nav_item" id="l" href="">LOGIN</li>
+                </ul>
+            </nav>
+            <!-- nav 끝 -->
+            <main>
+                <div id="con1"></div>
+                <h1 class="forum_title">
+                    FORUM
+                    <p>게 시 판</p>
+                </h1>
+                <div class="board_wrapper">
+                    <div class="board_write">
+                        div
+                    </div>
+                </div>
+            </main>
+            <footer></footer>
+        </div>
+    </body>
+    <script src="js/nav.js"></script>
+    <script>
+
+    </script>
+</html>

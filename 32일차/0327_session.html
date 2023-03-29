@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>세션 스토리지에 쓰기/읽기</title>
+    </head>
+    <body>
+        <!-- 세션 스토리지
+    쿠키는 저장용량이 4kb에 불과하고 불필요한 트래픽을 발생시킴
+    세션은 키, 값으로 이루어진 문자열 쌍을 저장할 수 있음
+    창(window)이 닫힐 때 세션 소명
+    윈도우에 로드된 모든 웹 페이지는 세션을 공유
+    -->
+        <h3>세션 스토리지에 구입 리스트 저장/검색</h3>
+        <hr />
+        품목명 : <input id="item" type="text" />
+        개수 : <input id="count" type="text">
+        <!-- 저장 버튼 누르면 store 함수를 실행하고 -->
+        <button id="save" onclick="store()">저장</button>
+        <!-- 검색을 누르면 retrieve 함수를 실행하고 -->
+        <button id="retrieve" onclick="retrieve()">검색</button>
+        <script>
+            //js에서는 매개변수 활용 없이 태그 객체만 활용해도 괜찮다.
+            // item과 count 변수에 각각 tag id를 가져와서 저장한다.
+            var item = document.getElementById("item");
+            var count = document.getElementById("count");
+            function store() {//e는 이벤트 객체
+                if (!window.sessionStorage) {//세션 스토리지를 지원하지 않음
+                    alert("세션 스토리지를 지원하지 않습니다.")
+                    return;
+                }//쿠키 text  만료: 쿠키 저장시 설정    (빠름) 4kb
+                //세션 object 만료:브라우저 종료        (기간 지정이 별도로 가능) 느림 보안 굿
+                // 지원한다면, 세션에 데이터를 저장함, 용량제한 서버의 허용범위안에서
+                // item값과 count 값을 저장한다.
+                //setItem(key, value) : value 데이터를 key 이름으로 저장한다.
+                sessionStorage.setItem(item.value, count.value);
+            }
+            function retrieve() {
+                if (!window.sessionStorage) {
+                    alert("세션 스토리지를 지원하지 않습니다.")
+                    return;
+                }
+                // 변수 val에 세션에 key 이름으로 저장된 값을 가져와 저장한다.
+                var val = sessionStorage.getItem(item.value);
+                // 만약 없는 품목명을 입력했다면 뜨는 메세지
+                if (val == null){
+                    alert(item.value + "는 구입 리스트에 없습니다.");
+                }
+                else{
+                    // count의 값에 val의 값을 저장한다.
+                    count.value = val;
+                }
+            }
+        </script>
+    </body>
+</html>
+<!-- 웹 스토리지 : 세션스토리지 (session storage)와 로컬스토리지 (local storage) 웹
+스토리지의 특징 
+문자열만 저장 
+(키, 값)으로 구성된 아이템 단위로 저장 
+동일한 키를 가진 아이뎀은 존재할 수 없음 •키'와 '값• 문자열은 대소문자 구분, 저장,
+검색, 삭제 등 원 스토리지의 조작은 모두 자바스크립 코드로 작성 세션 스토리지의
+생성과 소멸 세션 : 연결된 웹 사이트와 원도우 윈도우에 웹 사이트가 로드될 때 세션
+스토리지 생성 한 윈도우에 여러 세션 스토리지 생성 가능 윈도우가 닫힐 때 세션
+스토리지 소멸 윈도우마다 세션 스토리지 별도로 생성 윈도우 사이에서는 공유되지
+않음 
+세션 스토리지 공유 
+윈도우에 로드된 웹 사이트의 모든 웹 페이지들이 세션스토리지 공유 
+세션 스토리지 용도 한 윈도우에서 연결된 웹 사이트의 웹
+페이지들끼리 데이터를 주고 받는 임시 저장 공간
+객체 배열 등의 다른 데이터 형식을 웹 스토리지에 저장하려면 해당ㅇ 데이터를 
+문자열로 변환해야함
+var obj = {
+    name: "John Doe",
+    age: 30
+};
+localStorage.setItem("user", JSON.stringify(obj));
+로컬 스토리에서 객체를 가져오려면
+var storeObj = JSON.parse(localStorage.hetItem("user"));
+
+-->

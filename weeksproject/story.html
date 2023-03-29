@@ -11,7 +11,7 @@
                 height: 130vh;
                 width: 100%;
             }
-            ul,
+            ul,s
             li,
             h1,
             h2,
@@ -20,9 +20,6 @@
                 list-style: none;
                 padding: 0;
                 margin: 0;
-            }
-            h1,
-            ul {
                 font-family: "Cormorant Garamond", serif;
             }
             #con1 {
@@ -144,11 +141,11 @@
         <div class="container_nav">
             <nav class="header_menu">
                 <ul class="nav_menu">
-                    <li><a class="nav_item" id="s" href="">STORY</a></li>
-                    <li><a class="nav_item" id="c" href="">CHARACTER</a></li>
-                    <li><a class="nav_item" id="m" href="">MEDIA MIX</a></li>
-                    <li><a class="nav_item" id="f" href="">FORUM</a></li>
-                    <li><a class="nav_item" id="l" href="">LOGIN</a></li>
+                    <li class="nav_item" id="s">STORY</li>
+                    <li class="nav_item" id="c">CHARACTER</li>
+                    <li class="nav_item" id="m">MEDIA MIX</li>
+                    <li class="nav_item" id="f">FORUM</li>
+                    <li class="nav_item" id="l">LOGIN</li>
                 </ul>
             </nav>
             <!-- nav 끝 -->
@@ -219,7 +216,7 @@
         var slide = document.querySelectorAll(".slide");
 
         window.addEventListener("load", function () {
-            setInterval("focusChange()", 5000);
+            setInterval("focusChange()", 4000);
         });
 
         function focusChange() {

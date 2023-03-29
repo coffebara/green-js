@@ -1,8 +1,7 @@
-const aTag = document.querySelectorAll(".nav_item");
-        const nav_menu = Array.from(aTag);
+        const nav_item = document.querySelectorAll(".nav_item");
         
         window.addEventListener("load", function() {
-            aTag.forEach(function(item) {
+            nav_item.forEach(function(item) {
             item.addEventListener("mouseleave", function() {
                 var tmp = this;
                 var a = tmp.getAttribute("id");
@@ -24,7 +23,7 @@ const aTag = document.querySelectorAll(".nav_item");
                         break;
                 }
             });
-            item.addEventListener("mouseover", function() {
+            item.addEventListener("mouseenter", function() {
                 var tmp = this;
                 var a = tmp.getAttribute("id");
                 switch(a){
@@ -47,3 +46,35 @@ const aTag = document.querySelectorAll(".nav_item");
             })
         })
         })
+        nav_item.forEach((list) => {
+            list.addEventListener("click", function () {
+                var tmp = this;
+                var a = tmp.getAttribute("id");
+                switch(a){
+                    case "s":
+                        location.href = 'story.html';
+                        break;
+                    case "c":
+                        location.href = '#';
+                        break;
+                    case "m":
+                        location.href = '#';
+                        break;
+                    case "f":
+                        location.href = 'forum.html';
+                        break;
+                    case "l":
+                        location.href = '#';
+                        break;
+                }
+
+
+                // if(this.innerHTML == "Home"){
+                //     location.href = 'index.html';
+                // } else if(this.innerHTML == "Portfolio"){
+                //     location.href = 'portfolio.html';
+                // } else if(this.innerHTML == "About"){
+                //     location.href = 'about.html';
+                // }
+            });
+        });

@@ -35,8 +35,6 @@ body {
     position: relative;
     display: flex;
     align-items:center;
-}
-.nav_menu a {
     font-family: "Cormorant Garamond", serif;
     color: aliceblue;
     font-size: 2.4vmin;
@@ -47,8 +45,10 @@ body {
     background-size: 2.3vmin auto;
     transition: all 0.4s ease;
 }
-.nav_menu a:hover{
+.nav_menu li:hover{
     /* color: #500000; */
     color: #bb8d1d;
     transform: scale(1.1);
+    cursor: pointer;
 }
+
