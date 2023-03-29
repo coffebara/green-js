@@ -66,6 +66,8 @@
                     case "l":
                         location.href = '#';
                         break;
+                    case "logo":
+                        location.href = 'index.html'
                 }
 
 

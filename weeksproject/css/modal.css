@@ -1,0 +1,125 @@
+            /* 모달 */
+            .container {
+                width: 100%;
+            }
+            /* 어두워지게 */
+            .popup-wrap {
+                background-color: rgba(0, 0, 0, 0.3);
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: none;
+                padding: 15px;
+            }
+            /* 팝업창 박스 */
+            .popup {
+                width: 100%;
+                max-width: 800px;
+                overflow: hidden;
+                background-color: #161616;
+                box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+                color:white;
+                border-radius: 10px;
+            }
+            /* 팝업 헤드 */
+            .popup-head {
+                width: 100%;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                border-bottom: 1px solid #343434;
+            }
+            .head-title {
+                font-size: 25px;
+                color: #fff;
+                font-weight: 700;
+                letter-spacing: -3px;
+                margin-left: 20px;
+            }
+            /* 팝업 바디 */
+            .popup-body {
+                width: 100%;
+                padding-top: 30px;
+            }
+            .body-content {
+                width: 100%;
+            }
+            .body_top, .body_bottom, .body_data{
+                display: flex;
+            }
+            .body-titleBox {
+                text-align: center;
+                width: 100%;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+            .form_group{
+                width: 75%;
+                margin: 10px 50px 0 10px;
+            }
+            .form_control{
+                width: 100%;
+                padding: 10px 20px 10px 10px;
+                background-color: #121212;
+                color: #fff;
+            }
+            .text_control{
+                width: 25%;
+                text-align: right;
+                padding-top: 10px;
+                margin-right: 10px;
+            }
+            .body_foot{
+                margin-top: 10px;
+                display: flex;
+                justify-content:flex-end;
+                width: 58%;
+            }
+            /* 팝업 하단 */
+            .body-contentBox {
+                display: flex;
+                align-items: stretch;
+                word-break: break-word;
+                overflow-y: auto;
+                min-height: 400px;
+                max-height: 400px;
+            }
+            .popup-foot {
+                display: flex;
+                justify-content: end;
+                box-sizing: border-box;
+                border-top: 1px solid #343434;
+                width: 100%;
+                height: 70px;
+                padding: 15px 0;
+            }
+            #form_file{
+                text-align: left;
+            }
+            /* 하단 버튼 */
+            .btn_control{
+                height: 100%;
+                width: 55px;
+                margin-right: 10px;
+                color: #fff;
+                box-shadow: none;
+                border-radius: 2px;
+            }
+            .btn_control:hover{
+                cursor: pointer;
+            }
+            .btn1{
+                width: 65px;
+                background-color: transparent;
+                border: #343434 1px solid;
+            }
+            .btn2{
+                margin-right: 20px;
+                background-color: #b81b22;
+                border: 0;
+            }

@@ -6,12 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>베르세르크</title>
         <link rel="stylesheet" href="css/nav.css" />
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <link rel="stylesheet" href="css/modal.css">
         <style>
-            body {
+            * {
                 padding: 0;
                 margin: 0;
-                line-height: 1.5;
             }   
+            body{   
+                line-height: 1.5;
+            }
             main {
                 height: 130vh;
                 width: 100%;
@@ -167,11 +171,30 @@
                 background-color: #bb8d1d;
             }
         </style>
+        <script>
+            $(function () {
+                $("#confirm").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                    //컨펌 이벤트 처리
+                });
+                $(".write").click(function () {
+                    $("#popup").css("display", "flex").hide().fadeIn();
+                    });
+                $("#close").click(function () {
+                    modalClose(); //모달 닫기 함수 호출
+                });
+                function modalClose() {
+                    $("#popup").fadeOut(); //페이드아웃 효과
+                    $("#left .cloned-img").remove();
+                }
+            });
+        </script>
     </head>
     <body>
         <div class="container_nav">
             <nav class="header_menu">
                 <ul class="nav_menu">
+                    <span class="nav_item" id="logo"><img id="logoImg" src="https://www.speedrun.com/gameasset/268e2v96/cover?v=4d59815"></span>
                     <li class="nav_item" id="s">STORY</li>
                     <li class="nav_item" id="c">CHARACTER</li>
                     <li class="nav_item" id="m">MEDIA MIX</li>
@@ -253,15 +276,57 @@
                         </div>
                     </div>
                 </div>
+                <!-- 모달 영역 -->
+                <div class="container">
+                    <div class="popup-wrap" id="popup">
+                        <div class="popup">
+                            <div class="popup-head">
+                                <span class="head-title">New</span>
+                            </div>
+                            <div class="popup-body">
+                                <div class="body-content">
+                                    <div class="body-titleBox">
+                                        <div class="body_top">
+                                            <div class="text_control">
+                                                <h3>Title</h3>
+                                            </div>
+                                            <div class="form_group">
+                                                <input class="form_control type="text">
+                                            </div>
+                                        </div>
+                                        <div class="body_bottom">
+                                            <div class="text_control">
+                                                <h3>Text</h3>
+                                            </div>
+                                            <div class="form_group">
+                                                <textarea class="form_control" rows="20"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="body_data">
+                                            <div class="text_control" id="file_text">
+                                            </div>
+                                            <div class="form_group" id="form_file">
+                                                <input type="file" value="file1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body-contentBox">
+                                        <div id="left"></div>
+                                        <div id="right">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-foot">
+                                <button class="btn_control btn1" id="close">Cancel</button>
+                                <button class="btn_control btn2" id="confirm">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
             <footer></footer>
         </div>
     </body>
     <script src="js/nav.js"></script>
-    <script>
-        const write_btn = document.querySelector(".write");
-        write_btn.addEventListener("click", function(){
-            location.href = 'write.html';
-        })
-    </script>
 </html>

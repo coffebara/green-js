@@ -9,21 +9,27 @@
         function GetCookie(name) {
             var pairs = document.cookie.split(";"); // 쿠키 문자열을 ";"을 경계로 분할
             for(var i = 0; i < pairs.length; i++){
-                console.log("pairs " + pairs);
+                // console.log("pairs " + pairs);
                 var pair = pairs[i].trim(); //쿠키 앞 뒤의 빈칸 제거
-                console.log("pair " + pair);
+                // console.log("pair " + pair);
                 var unit = pair.split("=");//쿠키 문자열을 "="을 경계로 분할한다.
-                console.log("unit["+i+ "]" + unit[1]);
+                // console.log("unit["+i+ "]" + unit[1]);
                 console.log(unit);
                 // console.log(unit[1]);
                 if(unit[0] == name) //문자 디코딩 username = %uC6CC%B2CB
-                    return unescape(unit[1]);   
-            }
+                    // console.log(unit[i]);
+                    // console.log(unit[0]);
+                    return unescape(unit[i]);   
+                }
+                // if(unit[0] == count){
+                //     console.log(unit[1]);
+                // }
+
             return null;
         }
         function SetCookie(name, value, expireDate) {
             // escape : 아스키문자에 해당하지 않는 문자들을 모두유니코드 형식으로 변환해준다.
-            console.log("value" + value);
+            // console.log("value" + value);
             var cookieStr = name  + "=" + escape(value) + //escape(인코딩)
             // 날짜 정보는 Date 객체를 사용해 toGMTString() 함수로 변경해서 날짜 문자열을 생성해서 사용.
             //쿠기 값은 특수문자나 2바이트 문자 처리를 위해서 escape() 함수로 이스케이핑을 하는 것을 추천.
@@ -39,7 +45,7 @@
 <body>
     <script>
         // 쿠키를 생성
-        var username = GetCookie("username")
+        var username = GetCookie("username");
         var count = GetCookie("count");
         var expire = new Date();//현재시간
         // 입력된 username이 없을 경우, username 입력
