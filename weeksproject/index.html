@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/login_modal.css">
         <link rel="icon" href="https://www.dai-berserk-ten.com/wp_berserk/wp-content/themes/berserk/img/favicon.ico">
         <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4NQ1KNaGi1plXkyNoGMDpijh5AQQraKA&callback=initMap"></script>
         <style>
             body {
                 margin: 0;
@@ -76,12 +77,45 @@
             .infoZone {
                 position: relative;
                 width: 40%;
-                min-width: 400px;
+                min-width: 700px;
                 height: 70%;
+                min-height: 700px;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                border: 1px white solid;
+                /* border: 1px white solid; */
+            }
+            /* 인포 */
+            .infoZone{
+                color: #fff;
+            }
+            .info_title{
+                border-bottom: 1px solid #535353;
+                padding: 20px 10px
+            }
+            .info_title:last-child{
+                border: 0;
+            }
+            .info_title h2{
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            /* 내용 */
+            .info_contents{
+                display: inline-block;
+            }
+            strong{
+                font-size: 28px;
+                width: 120px;
+                margin-right: 50px;
+                display: inline-block;
+                vertical-align: top;
+            }
+            .info_text{
+                display: inline-block;
+                width: 450px;
+                font-size: 20px;
             }
             /* footer 시작 */
             .footer {
@@ -98,10 +132,27 @@
                 document.querySelector(".movZone").style.display = 'block';
             }
         })
-
+        // 구글api
+        var myCenter = new google.maps.LatLng(37.35040000089708, 127.10675425684482);
+        function myMap() {
+            // mapProp 변수에 다음 값들을 지정
+            var mapProp = {
+                center:myCenter,    //표시될 지도의 중심은 입력한 좌표
+                zoom:15,             // zoom : 확대되는 정도
+                mapTypeId:google.maps.MapTypeId.ROADMAP //map 출력 방식, 로드맵 형태
+            };
+            // 지정된 구글맵 정보를 div 태그에 출력 --> new google.maps.Map(지도출력요소, 지도정보)
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            // 지정된 위치에 마커 생성
+            var marker = new google.maps.Marker ({
+                position:myCenter,  //마커 찍을 위도 경도 좌표
+                animation:google.maps.Animation.BOUNCE  //마커 애니메이션 (바운스)
+            });
+            marker.setMap(map);
+        }
         </script>
     </head>
-    <body>
+    <body onload="myMap()">
         <div class="fBImg">
             <div id="headerBackgroundImg"></div>
             <div id="logo"></div>
@@ -125,8 +176,18 @@
                 </div>
             </div>
             <div class="container" id="con2">
-                <div class="infoZone">
-
+                <div class="infoZone" >
+                    <div class="info_title">
+                    <h2>전시관 개최</h2>
+                    <div class="info_contents"></div>
+                        <ul>
+                            <li class="info_title"><strong>제목</strong><span class="info_text">베르세르크전 미우라 켄타로 화업 32년의 궤적</span></li>
+                            <li class="info_title"><strong>날짜</strong><span class="info_text">2023년 9월 1일(화)~2023년 9월 31일(목)</span></li>
+                            <li class="info_title"><strong>전시시간</strong><span class="info_text">10:00~17:00(최종 입장 16:30)</span></li>
+                            <li class="info_title"><strong>장소</strong><span class="info_text">그린컴퓨터아카데미 분당 미금역점<br><br>이코노샤르망</span></li>
+                            <li><div id="googleMap" style="width: 100%; height: 280px;"></div></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="footer">푸터 영역</div>
